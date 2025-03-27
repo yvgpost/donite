@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <title>Donite</title>
     <link rel="icon" type="image/x-icon" href="img/favicon.svg">
   </head>
@@ -19,13 +19,26 @@
           <img class="cz-flag" src="img/czflag.svg">
           <p class="slogan">Vyrobeno v České republice</p>
         </div>
-        <div class="menu-lang" id="menuLang">
+        <div class="menu-lang">
           <div class="menu-section">
-            <a>Domů</a>
+            <a onclick="topFunction()" id="myBtnUp">Domů</a>
             <a>Prodej výrobků</a>
-            <a>Kontakty</a>
+            <a onclick="downFunction()" id="myBtnDowm">Kontakty</a>
           </div>
           <div class="lang-selector">
+            <a class="cz">CZ</a>
+            <a class="de">DE</a>
+            <a class="en">EN</a>
+            <a class="ua">UA</a>
+          </div>        
+        </div>
+        <div class="menu-lang-mobile" id="menuLang">
+          <div class="menu-section-mobile">
+            <a onclick="topFunction(); myFunction(); toggleHamburger();" id="myBtnUp">Domů</a>
+            <a>Prodej výrobků</a>
+            <a onclick="downFunction(); myFunction(); toggleHamburger();" id="myBtnDowm">Kontakty</a>
+          </div>
+          <div class="lang-selector-mobile">
             <a class="cz">CZ</a>
             <a class="de">DE</a>
             <a class="en">EN</a>
@@ -164,9 +177,17 @@
         </div>
 
     </div>
-
-
   <script>
+    let mybuttonup = document.getElementById("myBtnUp");
+    function topFunction() {
+      document.body.scrollTop = 0; 
+      document.documentElement.scrollTop = 0; 
+    }
+    let mybuttondown = document.getElementById("myBtnDowm");
+    function downFunction() {
+      document.body.scrollTop = document.documentElement.scrollHeight;
+      document.documentElement.scrollTop = document.documentElement.scrollHeight;
+    }
     function myFunction() {
       var x = document.getElementById("menuLang");
       if (x.style.display === "flex") {
