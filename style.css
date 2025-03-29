@@ -38,10 +38,11 @@ body {
   height: auto;
 }
 .cz-flag {
-  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+  padding: 0.4rem 0.5rem 0.4rem 0.5rem;
 }
 .logo {
-  padding: 0.2rem 0rem 0.2rem 0rem;
+  padding: 0.4rem 0rem 0.4rem 0rem;
+  cursor: pointer;
 }
 .slogan {
   font-style: italic;
@@ -89,9 +90,6 @@ body {
   -webkit-tap-highlight-color: transparent;
   text-decoration: none;
 }
-.cz {
-  font-weight: bold;
-}
 /* Home "About us" section */
 .aboutus {
 display: flex;
@@ -127,12 +125,6 @@ padding: 3rem 1rem 0rem 1rem;
   margin: 0;
   text-align: justify;
 }
-.sentance1 {
-  padding-bottom: 0.7rem;
-}
-.sentance2 {
-  padding-bottom: 0.7rem;
-}
 /* Home "Clients" section */
 .our-clients {
   display: flex;
@@ -141,7 +133,7 @@ padding: 3rem 1rem 0rem 1rem;
   margin: 0 auto;
   flex-direction: column;
   box-sizing: border-box;
-  padding: 3rem 1rem 3rem 1rem;
+  padding: 3rem 1rem 4.5rem 1rem;
 }
 .our-clients-title {
   padding-bottom: 1rem;
@@ -167,7 +159,7 @@ padding: 3rem 1rem 0rem 1rem;
   border-radius: 0.5rem;
   cursor: pointer;
 }
-/* Home "Our products" section & Store "Detergents" section */
+/* Home "Our products" section & Store products section */
 .products-section {
   display: flex;
   width: 60rem;
@@ -256,7 +248,7 @@ padding: 3rem 1rem 0rem 1rem;
   padding-top: 3rem;
 }
 #spec {
-  padding-bottom: 3rem;
+  padding-bottom: 4.5rem;
 }
 /* Footer */
 .footer {
@@ -265,8 +257,6 @@ padding: 3rem 1rem 0rem 1rem;
   box-shadow: 2px 2px 11px 8px rgba(0,0,0,.3);
   box-sizing: border-box;
   width: 100%;
-  position: sticky;
-  top: 0;
   background-color: rgb(51, 70, 116);
 }
 .footer-content {
@@ -276,8 +266,12 @@ padding: 3rem 1rem 0rem 1rem;
   margin: 0 auto;
   padding: 1rem;
   box-sizing: border-box;
-  grid-template-columns: 1fr 1fr 1fr ;
-  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas: 
+  'details-title operating-hours-title links-title'
+  'details-text operating-hours-text links-text'
+  'copyright copyright copyright';
   row-gap: 0.5rem;
   column-gap: 3rem;
   color: white;
@@ -295,12 +289,68 @@ padding: 3rem 1rem 0rem 1rem;
   margin-bottom: 0.5rem;
   text-align: right;
 }
+.details-title {
+  grid-area: details-title;
+}
+.operating-hours-title {
+  grid-area: operating-hours-title;
+}
+.links-title {
+  grid-area: links-title;
+}
+.details-text {
+  grid-area: details-text;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto auto auto auto auto;
+}
+.details-text p {
+grid-column: 2;
+}
+.qr-container {
+  display: flex;
+  flex-direction: column-reverse;
+  grid-column: 1;
+  grid-row: 1 / 8;
+  width: auto;
+  height: auto;;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+.qr-container p {
+  width: 6.5rem;
+  margin: 0;
+  font-size: 0.8rem;
+  text-align: center;
+}
+.qr-field {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 0.5rem;
+  color: black;
+  margin: 0;
+}
+.qr-field p {
+  margin: 0;
+  padding-top: 0.3rem;
+}
+.qr {
+  width: 6.5rem;
+  height: 6.5rem;
+}
+.operating-hours-text {
+  grid-area: operating-hours-text;
+}
+.links-text {
+  grid-area: links-text;
+}
 .map {
   height: 8.5rem;
 }
 .copyright {
-  grid-column: 2;
-  grid-row: 2;
+  grid-area: copyright;
   justify-items: center;
 }
 .copyright p {
@@ -315,7 +365,7 @@ padding: 3rem 1rem 0rem 1rem;
   position: fixed;
   width: 3rem;
   height: 3rem;
-  bottom: 2rem; 
+  bottom: 3.1rem; 
   right: 2rem;
   z-index: 99;
   border: none;
@@ -375,6 +425,7 @@ padding: 3rem 1rem 0rem 1rem;
   .menu-lang {
     display: none;
   }
+  /* Mobile menu */
   .menu-lang-mobile {
     display: none;
     flex-direction: column;
@@ -399,11 +450,12 @@ padding: 3rem 1rem 0rem 1rem;
     padding-bottom: 1rem;
     box-shadow: 2px 2px 8px 0 rgba(0,0,0,.3);
     gap: 1rem;
+    align-items: end;
+    padding-right: 1rem;
   }
   .menu-section-mobile a {
     padding: 0;
     color: rgb(4, 35, 99);
-    align-self: center;
     -webkit-tap-highlight-color: transparent;
     text-decoration: none;
   }
@@ -418,7 +470,6 @@ padding: 3rem 1rem 0rem 1rem;
     justify-content: center;
     font-size: 1rem;
     justify-content: space-evenly;
-
   }
   .lang-selector-mobile a {
     padding: 0.1rem;
@@ -426,8 +477,9 @@ padding: 3rem 1rem 0rem 1rem;
     -webkit-tap-highlight-color: transparent;
     text-decoration: none;
   }
-  .cz {
-    font-weight: bold;
+  .subcategory {
+    font-size: 1.1rem;
+    align-self: flex-end;
   }
   .mobile-menu-btn {
     display: flex;
@@ -466,6 +518,7 @@ padding: 3rem 1rem 0rem 1rem;
     transform-origin: bottom left;
     width: 1.75rem;
   }
+  /* Mobile header */
   .header {
     height: 3rem;
     display: block;
@@ -506,6 +559,7 @@ padding: 3rem 1rem 0rem 1rem;
   .cz-flag {
     padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   }
+  /* Mobile home "About us" section */
   .aboutus {
     display: flex;
     flex-direction: column;
@@ -513,7 +567,7 @@ padding: 3rem 1rem 0rem 1rem;
     height: auto;
     margin: 0 auto;
     box-sizing: border-box;
-    padding: 1rem;
+    padding: 3rem 1rem 0rem 1rem;
   }
   .aboutus-title {
     padding-bottom: 1rem;
@@ -538,192 +592,7 @@ padding: 3rem 1rem 0rem 1rem;
     margin: 0;
     text-align: justify;
   }
-  .sentance1 {
-    padding-bottom: 0.7rem;
-  }
-  .sentance2 {
-    padding-bottom: 0.7rem;
-  }
-  .our-products {
-    display: flex;
-    width: auto;
-    height: auto;
-    margin: 0 auto;
-    flex-direction: column;
-    box-sizing: border-box;
-    padding: 0rem 1rem 1rem 1rem;
-  }
-  .our-products-title {
-    padding-bottom: 1rem;
-  }
-  .our-products-title p {
-    font-size: 1.3rem;
-    margin: 0;
-    font-weight: bold;
-    color: rgb(4, 35, 99);
-  }
-  .products {
-    display: flex;
-    flex-direction: column;    
-    box-sizing: border-box;
-    gap: 1rem;
-  }
-  .products img {
-    width: 100%;
-    height: auto;
-    box-sizing: border-box;
-    box-shadow: 2px 2px 5px 0 rgba(0,0,0,.3);
-  }
-  .cleaning-agents {
-    display: flex;
-    box-shadow: 2px 2px 5px 0 rgba(0,0,0,.3);
-    border-radius: 0.5rem;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .cleaning-agents p {
-    width: 50%;
-    margin: 0;
-    padding: 1rem;
-    font-size: 1.1rem;
-    color: white;
-    font-weight: bold;
-    background-color: rgb(51, 70, 116);
-    border-top-left-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
-    box-sizing: border-box;
-  }
-  .cleaning-agents img {
-    width: 50%;
-    object-fit: cover;
-    border-top-right-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
-  }
-  .desinfectants {
-    display: flex;
-    box-shadow: 2px 2px 5px 0 rgba(0,0,0,.3);
-    border-radius: 0.5rem;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .desinfectants p {
-    width: 50%;
-    margin: 0;
-    padding: 1rem;
-    font-size: 1.1rem;
-    color: white;
-    font-weight: bold;
-    background-color: rgb(51, 70, 116);
-    border-top-left-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
-    box-sizing: border-box;
-  }
-  .desinfectants img {
-    width: 50%;
-    object-fit: cover;
-    border-top-right-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
-  }
-  .combined {
-    display: flex;
-    box-shadow: 2px 2px 5px 0 rgba(0,0,0,.3);
-    border-radius: 0.5rem;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .combined p {
-    width: 50%;
-    margin: 0;
-    padding: 1rem;
-    font-size: 1.1rem;
-    color: white;
-    font-weight: bold;
-    background-color: rgb(51, 70, 116);
-    border-top-left-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
-    box-sizing: border-box;
-  }
-  .combined img {
-    width: 50%;
-    object-fit: cover;
-    border-top-right-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
-  }
-  .care {
-    display: flex;
-    box-shadow: 2px 2px 5px 0 rgba(0,0,0,.3);
-    border-radius: 0.5rem;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .care p {
-    width: 50%;
-    margin: 0;
-    padding: 1rem;
-    font-size: 1.1rem;
-    color: white;
-    font-weight: bold;
-    background-color: rgb(51, 70, 116);
-    border-top-left-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
-    box-sizing: border-box;
-  }
-  .care img {
-    width: 50%;
-    object-fit: cover;
-    border-top-right-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
-  }
-  .special {
-    display: flex;
-    box-shadow: 2px 2px 5px 0 rgba(0,0,0,.3);
-    border-radius: 0.5rem;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .special p {
-    width: 50%;
-    margin: 0;
-    padding: 1rem;
-    font-size: 1.1rem;
-    color: white;
-    font-weight: bold;
-    background-color: rgb(51, 70, 116);
-    border-top-left-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
-    box-sizing: border-box;
-  }
-  .special img {
-    width: 50%;
-    object-fit: cover;
-    border-top-right-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
-  }
-  .contract {
-    display: flex;
-    box-shadow: 2px 2px 5px 0 rgba(0,0,0,.3);
-    border-radius: 0.5rem;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .contract p {
-    width: 50%;
-    margin: 0;
-    padding: 1rem;
-    font-size: 1.1rem;
-    color: white;
-    font-weight: bold;
-    background-color: rgb(51, 70, 116);
-    border-top-left-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
-    box-sizing: border-box;
-  }
-  .contract img {
-    width: 50%;
-    object-fit: cover;
-    border-top-right-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
-  }
+/* Mobile home "Clients" section */
   .our-clients {
     display: flex;
     width: auto;
@@ -731,7 +600,7 @@ padding: 3rem 1rem 0rem 1rem;
     margin: 0 auto;
     flex-direction: column;
     box-sizing: border-box;
-    padding: 0rem 1rem 1rem 1rem;
+    padding: 3rem 1rem 4.5rem 1rem;
   }
   .our-clients-title {
     padding-bottom: 1rem;
@@ -757,35 +626,134 @@ padding: 3rem 1rem 0rem 1rem;
     border-radius: 0.5rem;
     cursor: pointer;
   }
+  /* Mobile home "Our products" section & Store products section */
+  .products-section {
+    display: flex;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 3rem 1rem 0rem 1rem;
+  }
+  .products-title {
+    padding-bottom: 1rem;
+  }
+  .products-title p {
+    font-size: 1.3rem;
+    margin: 0;
+    font-weight: bold;
+    color: rgb(4, 35, 99);
+  }
+  .products-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 12rem;
+    box-sizing: border-box;
+    gap: 1rem;
+  }
+  .product-cell {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    box-shadow: 2px 2px 5px 0 rgba(0,0,0,.3);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .product-cell-left {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 1rem;
+    font-size: 1.1rem;
+    color: white;
+    font-weight: bold;
+    background-color: rgb(51, 70, 116);
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    box-sizing: border-box;
+  }
+  .product-cell-left h2 {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+  .product-cell-left p {
+    font-size: 1rem;
+    text-align: left;
+    font-weight: 300;
+  }
+  .product-cell-right {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    box-sizing: border-box;
+  }
+  .product-cell-right img {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+    box-sizing: border-box;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+  }
+  #desinfectionDescription, #desinfection .product-cell-left {
+    background-color: #899dc9;
+  }
+  #combinationDescription, #combination .product-cell-left {
+    background-color: #008fe1;
+  }
+  #careDescription, #caring .product-cell-left {
+    background-color: #257a56;
+  }
+  #spacDescription, #spec .product-cell-left {
+    background-color: #c13540;
+  }
+  #desinfection, #combination, #caring, #spec, #productsList {
+    padding-top: 3rem;
+  }
+  #spec {
+    padding-bottom: 3rem;
+  }
+  /* Mobile home footer */
   .footer {
     height: auto;
-    display: block;
+    display: flex;
+    flex-direction: column;
     box-shadow: 2px 2px 11px 8px rgba(0,0,0,.3);
     box-sizing: border-box;
     width: 100%;
-    position: sticky;
-    top: 0;
     background-color: rgb(51, 70, 116);
   }
   .footer-content {
-    display: flex;
+    display: grid;
     flex-direction: column;
     height: auto;
     width: auto;
-    margin: 0 auto;
+    margin: 0;
     padding: 1rem;
     box-sizing: border-box;
-    grid-template-columns: 1fr 1fr 1fr ;
-    grid-template-rows: 1fr;
-    gap: 1rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto auto auto auto auto;
+    grid-template-areas: 
+    'details-title'
+    'details-text'
+    'operating-hours-title'
+    'operating-hours-text'
+    'links-title'
+    'links-text'
+    'copyright'; 
     color: white;
-    z-index: 0;
+    gap: 0;
   }
   .footer-content h2 {
     font-size: 1.3rem;
     margin: 0;
     font-weight: bold;
     padding-bottom: 1rem;
+    padding-top: 1rem;
   }
   .footer-content p {
     font-size: 1rem;
@@ -794,18 +762,97 @@ padding: 3rem 1rem 0rem 1rem;
     margin-bottom: 0.5rem;
     text-align: right;
   }
+  .details-title {
+    grid-area: details-title;
+  }
+  .operating-hours-title {
+    grid-area: operating-hours-title;
+  }
+  .links-title {
+    grid-area: links-title;
+  }
+  .details-text {
+    grid-area: details-text;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto auto auto auto auto;
+  }
+  .details-text p {
+  grid-column: 2;
+  }
+  .qr-container {
+    display: flex;
+    flex-direction: column-reverse;
+    grid-column: 1;
+    grid-row: 1 / 8;
+    width: 6.5rem;
+    height: auto;;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+  .qr-container p {
+    width: 6.5rem;
+    margin: 0;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .qr-field {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 0.5rem;
+    color: black;
+    margin: 0;
+  }
+  .qr-field p {
+    margin: 0;
+    padding-top: 0.3rem;
+  }
+  .qr {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+  .operating-hours-text {
+    grid-area: operating-hours-text;
+  }
+  .links-text {
+    grid-area: links-text;
+  }
   .map {
     height: 8.5rem;
   }
   .copyright {
-    grid-column: 2;
-    grid-row: 2;
+    grid-area: copyright;
     justify-items: center;
+    padding-top: 1rem;;
   }
   .copyright p {
     font-size: 0.8rem;
     margin: 0;
     padding: 0;
-  
+  }
+  /* Mobile Up button */
+  #upBtn {
+    display: none; 
+    position: fixed;
+    width: 3rem;
+    height: 3rem;
+    bottom: 0.5rem; 
+    right: 1rem;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: rgb(181, 197, 216);
+    color: black;
+    cursor: pointer;
+    padding: 0.1rem;
+    font-weight: bold;
+    border-radius: 50%; 
+    font-size: 1rem;
+    writing-mode: vertical-rl;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,.3);
   }
 }
