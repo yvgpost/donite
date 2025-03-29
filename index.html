@@ -2,7 +2,7 @@
 <html lang="cs">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="styleindex.css?v=1.0">
+    <link rel="stylesheet" href="style.css?v=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +22,7 @@
         <div class="menu-lang">
           <div class="menu-section">
             <a onclick="topFunction()" id="myBtnUp">Domů</a>
-            <a>Prodej výrobků</a>
+            <a href="store.html">Prodej výrobků</a>
             <a onclick="downFunction()" id="myBtnDowm">Kontakty</a>
           </div>
           <div class="lang-selector">
@@ -35,7 +35,7 @@
         <div class="menu-lang-mobile" id="menuLang">
           <div class="menu-section-mobile">
             <a onclick="topFunction(); myFunction(); toggleHamburger();" id="myBtnUp">Domů</a>
-            <a>Prodej výrobků</a>
+            <a href="store.html">Prodej výrobků</a>
             <a onclick="downFunction(); myFunction(); toggleHamburger();" id="myBtnDowm">Kontakty</a>
           </div>
           <div class="lang-selector-mobile">
@@ -75,44 +75,67 @@
             </div>
         </div>
     </div>
-    <div class="our-products">
-      <div class="our-products-title">
+    <div class="products-section" id="productsList">
+      <div class="products-title">
         <p>Naše produkty</p>
       </div>
-
-
-
-
-      <div class="products">
-        <div class="cleaning-agents">
-          <p>Čisticí prostředky</p>
-          <img src="img/cleaningagents.jpg">
+      <div class="products-grid">
+        <div class="product-cell" onclick="window.open('store.html#cleaning','_top' ); return false;">
+          <div class="product-cell-left">
+            <h2>Čisticí prostředky</h2>
+            <p>Odstranění nečistot z různých povrchů, jako jsou podlahy, nábytek nebo nádobí</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/cleaningagents.jpg">
+          </div>
         </div>
-        <div class="desinfectants">
-          <p>Dezinfekční prostředky</p>
-          <img src="img/desinfectants.jpg">
+        <div class="product-cell" onclick="window.open('store.html#desinfection','_top' ); return false;">
+          <div class="product-cell-left" id="desinfectionDescription">
+            <h2>Dezinfekční prostředky</h2>
+            <p>Ničení bakterií, virů a dalších mikroorganismů, které mohou být zdraví škodlivé</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/desinfectants.jpg">
+          </div>
         </div>
-        <div class="combined">
-          <p>Kombinované přípravky</p>
-          <img src="img/combined.jpg">
+        <div class="product-cell" onclick="window.open('store.html#combination','_top' ); return false;">
+          <div class="product-cell-left" id="combinationDescription">
+            <h2>Kombinované přípravky</h2>
+            <p>Kombinují čisticí a dezinfekční vlastnosti</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/combined.jpg">
+          </div>
         </div>
-        <div class="care">
-           <p>Ošetřující prostředky</p>
-           <img src="img/care.jpg">
-        </div><div class="special">
-          <p>Speciální prostředky</p>
-          <img src="img/special.jpg">
-        </div><div class="contract">
-          <p>Výroba na zakázku</p>
-          <img src="img/contract.jpg">
-        </div>      
+        <div class="product-cell" onclick="window.open('store.html#caring','_top' ); return false;">
+          <div class="product-cell-left" id="careDescription">
+            <h2>Ošetřující prostředky</h2>
+            <p>Chrání a zachovávají vlastnosti povrchů, na které jsou aplikovány</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/care.jpg">
+          </div>
+        </div>
+        <div class="product-cell" onclick="window.open('store.html#spec','_top' ); return false;">
+          <div class="product-cell-left" id="spacDescription">
+            <h2>Speciální prostředky</h2>
+            <p>Odstranění odolných nečistot, jako je rez, vodní kámen a usazeniny</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/special.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>Výroba na zakázku</h2>
+            <p>Umíme vyrobit podle potřeb zákazníků</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/contract.jpg">
+          </div>
+        </div>
       </div>
     </div>
-
-
-
-
-
     <div class="our-clients">
       <div class="our-clients-title">
         <p>Naši klienti</p>
@@ -140,8 +163,6 @@
         <img src="img/clients/20.png">
       </div>
     </div>
-
-
     <div class="footer">
       <div class="footer-content">
 
@@ -175,8 +196,9 @@
         <div class="copyright">
           <p>© 2025 Donite s.r.o.</p>
         </div>
-
+      </div>
     </div>
+    <button onclick="topFunction()" id="upBtn">&#10094;</button>
   <script>
     let mybuttonup = document.getElementById("myBtnUp");
     function topFunction() {
@@ -202,7 +224,27 @@
       bars.forEach(bar => bar.classList.toggle('x'))
     }
     navToggle.addEventListener('click', toggleHamburger)
-  </script>
+    
+    
+    
+    let mybutton = document.getElementById("upBtn");
+    window.onscroll = function() {scrollFunction()};
+    function scrollFunction() {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        mybutton.style.display = "flex";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+    function topFunction() {
+      document.body.scrollTop = 0; 
+      document.documentElement.scrollTop = 0;
+    }
 
+
+
+
+
+  </script>
   </body>
 </html>     

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css?v=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Donite</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.svg">
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-content">
+        <div class="logo-section">
+          <img class="logo" src="img/logo.svg">
+          <img class="cz-flag" src="img/czflag.svg">
+          <p class="slogan">Vyrobeno v České republice</p>
+        </div>
+        <div class="menu-lang">
+          <div class="menu-section">
+            <a href="index.html" id="myBtnUp">Domů</a>
+            <a>Prodej výrobků</a>
+            <a onclick="downFunction()" id="myBtnDowm">Kontakty</a>
+          </div>
+          <div class="lang-selector">
+            <a class="cz">CZ</a>
+            <a class="de">DE</a>
+            <a class="en">EN</a>
+            <a class="ua">UA</a>
+          </div>        
+        </div>
+        <div class="menu-lang-mobile" id="menuLang">
+          <div class="menu-section-mobile">
+            <a href="index.html" onclick="topFunction(); myFunction(); toggleHamburger();" id="myBtnUp">Domů</a>
+            <a>Prodej výrobků</a>
+            <a onclick="downFunction(); myFunction(); toggleHamburger();" id="myBtnDowm">Kontakty</a>
+          </div>
+          <div class="lang-selector-mobile">
+            <a class="cz">CZ</a>
+            <a class="de">DE</a>
+            <a class="en">EN</a>
+            <a class="ua">UA</a>
+          </div>
+        </div>
+        <div class="mobile-menu-btn">
+          <a href="javascript:void(0);" class="nav-toggle" onclick="myFunction()">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="products-section" id="cleaning">
+      <div class="products-title">
+        <p>Čisticí prostředky</p>
+      </div>
+      <div class="products-grid">
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>WASH CLEAN</h2>
+            <p>Silně alkalický, nepěnivý čistící a odmašťující přípravek</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>FLOOR WASH</h2>
+            <p>Silně alkalický, nepěnivý čistící a odmašťující přípravek</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>GASTRO CLEAN</h2>
+            <p>Silně alkalický, nepěnivý čistící a odmašťující přípravek</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>UNIPROF</h2>
+            <p>Koncentrovaný čistící přípravek na okna, voděodolné povrchy, sanitární zařízení</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>RAMBO WC</h2>
+            <p>Přípravek (koncentrát) na odstranění rzi a vodního kamene</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>RAMBO MILK</h2>
+            <p>Vysoce účinný prostředek k mytí silně znečištěných rukou zejména od šmíru, oleje, ale i dalšího znečištění</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>RAMBO SAND</h2>
+            <p>Vysoce účinný přípravek pro čištění silně znečištěných povrchů různých materiálů</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>REGIA</h2>
+            <p>Antibakteriální tekuté mýdlo na ruce</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>LUXSOAP</h2>
+            <p>Tekuté mýdlo</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>SPRING</h2>
+            <p>Mycí přípravek pro ruční mytí nádobí s vůní limetky</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>RUDON</h2>
+            <p>Silně alkalický pěnivý čistící přípravek</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>SOFT FLOOR</h2>
+            <p>Alkalický pěnivý čistící přípravek</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>NIOSEPTOR</h2>
+            <p>Odpuzovač vody, ochranná leštěnka nerezu</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="products-section" id="desinfection">
+      <div class="products-title">
+        <p>Dezinfekční prostředky</p>
+      </div>
+      <div class="products-grid">
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>DEZ GEL</h2>
+            <p>Dezinfekční gel k hygienické dezinfekci rukou s baktericidní a levurocidní účinností</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>SANICID 5 D.D.I.</h2>
+            <p>Dezinfekce určený k používání v potravinářských provozech, zdravotnických zařízeníchch veškerého typu</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="products-section" id="combination">
+      <div class="products-title">
+        <p>Kombinované přípravky</p>
+      </div>
+      <div class="products-grid">
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>DONILEX</h2>
+            <p>Denní mycí a zároveň konzervační přípravek s protiskluzným voskem na všechny voděodolné povrchy</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>RAMBO SANITARY</h2>
+            <p>Dezinfekční přípravek, s baktericidním a fungicidním účinkem obsahují mycí složky</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>RAMBO SANITARY F</h2>
+            <p>Dezinfekční pěnivý silně alkalický přípravek s baktericidním a fungicidním účinkem</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>BACTERANIOS SF</h2>
+            <p>Prostředek na bázi KAS a Glutaraldehyd na vytírání podlah a otírání ploch včetně dlaždic a stěn, nábytku a vybavení</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="products-section" id="caring">
+      <div class="products-title">
+        <p>Ošetřující prostředky</p>
+      </div>
+      <div class="products-grid">
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>DONIWAX vosk</h2>
+            <p>Podlahový vosk a lesk na všechny vodovzdorné povrchy</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>WASH RINSE</h2>
+            <p>Oplachový přípravek na nádobí</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>KALYP HAND CREAM</h2>
+            <p>Lehce vstřebatelný krém na ruce</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>ENNATE</h2>
+            <p>Ochranný přípravek na nerezové povrchy, plasty, HPL materiál (šatní skříňky)</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="products-section" id="spec">
+      <div class="products-title">
+        <p>Speciální prostředky</p>
+      </div>
+      <div class="products-grid">
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>WASH CLEAN</h2>
+            <p>Silně alkalický, nepěnivý čistící a odmašťující přípravek</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>FLOOR WASH</h2>
+            <p>Silně alkalický, nepěnivý čistící a odmašťující přípravek</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>GASTRO CLEAN</h2>
+            <p>Silně alkalický, nepěnivý čistící a odmašťující přípravek</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>UNIPROF</h2>
+            <p>Koncentrovaný čistící přípravek na okna, voděodolné povrchy, sanitární zařízení</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>RAMBO WC</h2>
+            <p>Přípravek (koncentrát) na odstranění rzi a vodního kamene</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>RAMBO MILK</h2>
+            <p>Vysoce účinný prostředek k mytí silně znečištěných rukou zejména od šmíru, oleje, ale i dalšího znečištění</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+        <div class="product-cell">
+          <div class="product-cell-left">
+            <h2>RAMBO SAND</h2>
+            <p>Vysoce účinný přípravek pro čištění silně znečištěných povrchů různých materiálů</p>
+          </div>
+          <div class="product-cell-right">
+              <img src="img/canister.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer-content">
+        <div class="details">
+          <h2>Donite s.r.o.</h2>
+          <p>tel.: +420 703 330 703</p>
+          <p>email: info@donite.cz</p>
+          <p>IČO: 07081235</p>
+          <p>DIČ: CZ07081235</p>
+          <p>Haškova 420</p>
+          <p>415 10 Teplice</p>
+          <p>Česká republika</p>
+          
+        </div>
+        <div class="operating hours">
+          <h2>Provozní doba</h2>
+          <p>Po.-Pá.: 08:00-16:00</p>
+          <p>So.-Ne.: zavřeno</p>
+          <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2530.122019849087!2d13.827048876415715!3d50.643424971629635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47098e8c9ca0bb7d%3A0xfebc7387e52f3d83!2sDonite!5e0!3m2!1sen!2scz!4v1742905120263!5m2!1sen!2scz" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        <div class="links">
+          <h2>Odkazy</h2>
+          <p>Obchodní podmínky</p>
+          <p>Ochranu osobních údajů</p>
+        </div>
+        <div class="copyright">
+          <p>© 2025 Donite s.r.o.</p>
+        </div>
+    </div>
+    <button onclick="topFunction()" id="upBtn">&#10094;</button>
+  <script>
+    let mybuttonup = document.getElementById("myBtnUp");
+    function topFunction() {
+      document.body.scrollTop = 0; 
+      document.documentElement.scrollTop = 0; 
+    }
+    let mybuttondown = document.getElementById("myBtnDowm");
+    function downFunction() {
+      document.body.scrollTop = document.documentElement.scrollHeight;
+      document.documentElement.scrollTop = document.documentElement.scrollHeight;
+    }
+    function myFunction() {
+      var x = document.getElementById("menuLang");
+      if (x.style.display === "flex") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "flex";
+      }
+    }
+    let navToggle = document.querySelector('.nav-toggle')
+    let bars = document.querySelectorAll('.bar')
+    function toggleHamburger(e) {
+      bars.forEach(bar => bar.classList.toggle('x'))
+    }
+    navToggle.addEventListener('click', toggleHamburger)
+    let mybutton = document.getElementById("upBtn");
+    window.onscroll = function() {scrollFunction()};
+    function scrollFunction() {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        mybutton.style.display = "flex";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+    function topFunction() {
+      document.body.scrollTop = 0; 
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+  </body>
+</html>     
