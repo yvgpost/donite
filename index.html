@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=M+PLUS+Rounded+1c&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Donite</title>
     <link rel="icon" type="image/x-icon" href="img/favicon.svg">
   </head>
@@ -22,36 +25,33 @@
         <div class="menu-lang">
           <div class="menu-section">
             <a onclick="topFunction()" id="myBtnUp">Domů</a>
-            <a href="store.html">Prodej výrobků</a>
+            <a onclick="window.open('store.html','_top' ); return false;">Prodej výrobků</a>
             <a onclick="downFunction()" id="myBtnDowm">Kontakty</a>
           </div>
           <div class="lang-selector">
             <a style="font-weight: bold;" class="cz">CZ</a>
             <a class="de">DE</a>
             <a class="en">EN</a>
-            <a href="ua/index.html" class="ua">UA</a>
+            <a class="ua">UA</a>
           </div>        
         </div>
         <div class="menu-lang-mobile" id="menuLang">
           <div class="menu-section-mobile">
             <a onclick="topFunction(); myFunction(); toggleHamburger();" id="myBtnUp">Domů</a>
-            <a href="store.html">Prodej výrobků</a>
-
-            <a class="subcategory" href="store.html#cleaning">Čisticí prostředky</a>
-            <a class="subcategory" href="store.html#desinfection">Dezinfekční prostředky</a>
-            <a class="subcategory" href="store.html#combination">Kombinované přípravky</a>
-            <a class="subcategory" href="store.html#caring">Ošetřující prostředky</a>
-            <a class="subcategory" href="store.html#spec">Speciální prostředky</a>
-            <a class="subcategory" href="store.html#spec">Výroba na zakázku</a>
-
-
+            <a onclick="window.open('store.html','_top' ); return false;">Prodej výrobků</a>
+            <a class="subcategory" onclick="window.open('store.html#cleaning','_top' ); return false;">Čisticí prostředky</a>
+            <a class="subcategory" onclick="window.open('store.html#desinfection','_top' ); return false;">Dezinfekční prostředky</a>
+            <a class="subcategory" onclick="window.open('store.html#combination','_top' ); return false;">Kombinované přípravky</a>
+            <a class="subcategory" onclick="window.open('store.html#caring','_top' ); return false;">Ošetřující prostředky</a>
+            <a class="subcategory" onclick="window.open('store.html#spec','_top' ); return false;">Speciální prostředky</a>
+            <a class="subcategory" onclick="window.open('store.html#spec','_top' ); return false;" href="store.html#spec">Výroba na zakázku</a>
             <a onclick="downFunction(); myFunction(); toggleHamburger();" id="myBtnDowm">Kontakty</a>
           </div>
           <div class="lang-selector-mobile">
-            <a class="cz">CZ</a>
+            <a style="font-weight: bold;" class="cz">CZ</a>
             <a class="de">DE</a>
             <a class="en">EN</a>
-            <a href="ua/index.html" class="ua">UA</a>
+            <a class="ua">UA</a>
           </div>
         </div>
         <div class="mobile-menu-btn">

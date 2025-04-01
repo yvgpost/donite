@@ -11,6 +11,10 @@ html {
 body {
   background-color: rgb(244, 245, 248);
 }
+a, img, button {
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+}
 /* Header */
 .header {
   height: 3rem;
@@ -82,6 +86,7 @@ body {
   font-weight: 300;
   font-size: 0.8rem;
   padding-top: 0.2rem;
+  align-items: flex-start;
 }
 .lang-selector a {
   padding: 0.1rem;
@@ -435,6 +440,7 @@ grid-column: 2;
     width: 70%;
     height: auto;
     background-color: white;
+    z-index: 990;
   }
   .menu-section-mobile {
     display: flex;
@@ -446,18 +452,20 @@ grid-column: 2;
     font-weight: bold;
     box-sizing: border-box;
     padding-right: 0;
+    padding-left: 0;
     padding-top: 1rem;
     padding-bottom: 1rem;
     box-shadow: 2px 2px 8px 0 rgba(0,0,0,.3);
     gap: 1rem;
     align-items: end;
     padding-right: 1rem;
+
   }
   .menu-section-mobile a {
+    height: 2rem;
     padding: 0;
     color: rgb(4, 35, 99);
-    -webkit-tap-highlight-color: transparent;
-    text-decoration: none;
+    margin-bottom: 0.05rem;
   }
   .lang-selector-mobile {
     display: flex;
@@ -540,6 +548,7 @@ grid-column: 2;
     padding-right: 1rem;
     box-sizing: border-box;
     justify-content: space-between;
+    z-index: 998;
   }
   .logo-section {
     display: flex;
