@@ -25,6 +25,7 @@ a, img, button {
   position: sticky;
   top: 0;
   background-color: white;
+  z-index: 1;
 }
 .header-content {
   display: flex;
@@ -70,13 +71,44 @@ a, img, button {
   box-sizing: border-box;
   padding-right: 1rem;
 }
-.menu-section a {
+.menu-section a, .store-button {
   padding: 0;
   align-self: center;
   color: rgb(4, 35, 99);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   text-decoration: none;
+}
+.subcategory {
+  font-size: 1.1rem;
+}
+.store-button {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+.menu-section-dropdown {
+  position: absolute;
+  display: flex;
+  top: 3rem;
+  flex-direction: column;
+  width: 13.4rem;
+  height: auto;
+  box-sizing: border-box;
+  padding: 1rem;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);  
+  gap: 1rem;
+  background: white;
+  color: rgb(4, 35, 99);
+  cursor: pointer;
+  visibility: hidden;
+}
+.menu-section-dropdown a {
+  font-size: 1rem;
+  align-self: flex-start;
+}
+.store-button:hover .menu-section-dropdown{
+  visibility: visible;
+	transition-delay: 0.6s;
 }
 .lang-selector {
   display: flex;
@@ -103,7 +135,7 @@ width: 60rem;
 height: auto;
 margin: 0 auto;
 box-sizing: border-box;
-padding: 3rem 1rem 0rem 1rem;
+padding: 1rem 1rem 0rem 1rem;
 }
 .aboutus-title {
   padding-bottom: 1rem;
@@ -138,7 +170,7 @@ padding: 3rem 1rem 0rem 1rem;
   margin: 0 auto;
   flex-direction: column;
   box-sizing: border-box;
-  padding: 3rem 1rem 4.5rem 1rem;
+  padding: 1rem 1rem 3rem 1rem;
 }
 .our-clients-title {
   padding-bottom: 1rem;
@@ -172,16 +204,21 @@ padding: 3rem 1rem 0rem 1rem;
   margin: 0 auto;
   flex-direction: column;
   box-sizing: border-box;
-  padding: 3rem 1rem 0rem 1rem;
+  padding: 1rem 1rem 0rem 1rem;
+  z-index: 0;
 }
 .products-title {
   padding-bottom: 1rem;
+  position: relative;
+  z-index: 0;
 }
 .products-title p {
   font-size: 1.3rem;
   margin: 0;
   font-weight: bold;
   color: rgb(4, 35, 99);
+  z-index: 0;
+  position: relative;
 }
 .products-grid {
   display: grid;
@@ -189,6 +226,7 @@ padding: 3rem 1rem 0rem 1rem;
   grid-template-rows: 12rem;
   box-sizing: border-box;
   gap: 1rem;
+  z-index: 0;
 }
 .product-cell {
   display: grid;
@@ -237,23 +275,27 @@ padding: 3rem 1rem 0rem 1rem;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
 }
-#desinfectionDescription, #desinfection .product-cell-left {
+#desinfectionDescription, #des .product-cell-left {
   background-color: #899dc9;
 }
-#combinationDescription, #combination .product-cell-left {
+#combinationDescription, #comb .product-cell-left {
   background-color: #008fe1;
 }
-#careDescription, #caring .product-cell-left {
+#careDescription, #care .product-cell-left {
   background-color: #257a56;
 }
 #spacDescription, #spec .product-cell-left {
   background-color: #c13540;
 }
-#desinfection, #combination, #caring, #spec, #productsList {
-  padding-top: 3rem;
-}
 #spec {
-  padding-bottom: 4.5rem;
+  padding-bottom: 3rem;
+}
+.anchor {
+  display: block;
+  visibility: hidden;
+  position: absolute;
+  top: -3.8rem;
+  z-index: -1;
 }
 /* Footer */
 .footer {
@@ -430,6 +472,12 @@ grid-column: 2;
   .menu-lang {
     display: none;
   }
+  .menu-section-dropdown {
+    display: none;
+  }
+  .lang-selector {
+    display: none;;
+  }
   /* Mobile menu */
   .menu-lang-mobile {
     display: none;
@@ -440,7 +488,7 @@ grid-column: 2;
     width: 70%;
     height: auto;
     background-color: white;
-    z-index: 990;
+    z-index: 1;
   }
   .menu-section-mobile {
     display: flex;
@@ -459,7 +507,6 @@ grid-column: 2;
     gap: 1rem;
     align-items: end;
     padding-right: 1rem;
-
   }
   .menu-section-mobile a {
     height: 2rem;
@@ -536,7 +583,7 @@ grid-column: 2;
     position: sticky;
     top: 0;
     background-color: white;
-    z-index: 999;
+    z-index: 1;
   }
   .header-content {
     display: flex;
@@ -548,7 +595,7 @@ grid-column: 2;
     padding-right: 1rem;
     box-sizing: border-box;
     justify-content: space-between;
-    z-index: 998;
+    z-index: 1;
   }
   .logo-section {
     display: flex;
@@ -576,7 +623,7 @@ grid-column: 2;
     height: auto;
     margin: 0 auto;
     box-sizing: border-box;
-    padding: 3rem 1rem 0rem 1rem;
+    padding: 1rem 1rem 0rem 1rem;
   }
   .aboutus-title {
     padding-bottom: 1rem;
@@ -609,7 +656,7 @@ grid-column: 2;
     margin: 0 auto;
     flex-direction: column;
     box-sizing: border-box;
-    padding: 3rem 1rem 4.5rem 1rem;
+    padding: 1rem 1rem 4.5rem 1rem;
   }
   .our-clients-title {
     padding-bottom: 1rem;
@@ -643,7 +690,7 @@ grid-column: 2;
     margin: 0 auto;
     flex-direction: column;
     box-sizing: border-box;
-    padding: 3rem 1rem 0rem 1rem;
+    padding: 1rem 1rem 0rem 1rem;
   }
   .products-title {
     padding-bottom: 1rem;
@@ -708,20 +755,17 @@ grid-column: 2;
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
   }
-  #desinfectionDescription, #desinfection .product-cell-left {
+  #desinfectionDescription, #des .product-cell-left {
     background-color: #899dc9;
   }
-  #combinationDescription, #combination .product-cell-left {
+  #combinationDescription, #comb .product-cell-left {
     background-color: #008fe1;
   }
-  #careDescription, #caring .product-cell-left {
+  #careDescription, #care .product-cell-left {
     background-color: #257a56;
   }
   #spacDescription, #spec .product-cell-left {
     background-color: #c13540;
-  }
-  #desinfection, #combination, #caring, #spec, #productsList {
-    padding-top: 3rem;
   }
   #spec {
     padding-bottom: 3rem;
@@ -849,7 +893,7 @@ grid-column: 2;
     height: 3rem;
     bottom: 0.5rem; 
     right: 1rem;
-    z-index: 99;
+    z-index: 1;
     border: none;
     outline: none;
     background-color: rgb(181, 197, 216);

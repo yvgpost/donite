@@ -22,7 +22,17 @@
         <div class="menu-lang">
           <div class="menu-section">
             <a onclick="window.open('index.html','_top' ); return false;">Domů</a>
-            <a onclick="topFunction()" id="myBtnUp">Prodej výrobků</a>
+            <div class="store-button">
+              <a onclick="topFunction()" id="myBtnUp">Prodej výrobků&#129134;</a>
+              <div class="menu-section-dropdown">
+                  <a class="subcategory" onclick="window.open('store.html#cleaning','_top' ); return false;">Čisticí prostředky</a>
+                  <a class="subcategory" onclick="window.open('store.html#desinfection','_top' ); return false;">Dezinfekční prostředky</a>
+                  <a class="subcategory" onclick="window.open('store.html#combination','_top' ); return false;">Kombinované přípravky</a>
+                  <a class="subcategory" onclick="window.open('store.html#caring','_top' ); return false;">Ošetřující prostředky</a>
+                  <a class="subcategory" onclick="window.open('store.html#special','_top' ); return false;">Speciální prostředky</a>
+                  <a class="subcategory" onclick="window.open('store.html#special','_top' ); return false;">Výroba na zakázku</a>
+              </div>
+            </div>
             <a onclick="downFunction()" id="myBtnDowm">Kontakty</a>
           </div>
           <div class="lang-selector">
@@ -40,8 +50,8 @@
             <a class="subcategory" onclick="myFunction(); toggleHamburger();" href="store.html#desinfection">Dezinfekční prostředky</a>
             <a class="subcategory" onclick="myFunction(); toggleHamburger();" href="store.html#combination">Kombinované přípravky</a>
             <a class="subcategory" onclick="myFunction(); toggleHamburger();" href="store.html#caring">Ošetřující prostředky</a>
-            <a class="subcategory" onclick="myFunction(); toggleHamburger();" href="store.html#spec">Speciální prostředky</a>
-            <a class="subcategory" onclick="myFunction(); toggleHamburger();" href="store.html#spec">Výroba na zakázku</a>
+            <a class="subcategory" onclick="myFunction(); toggleHamburger();" href="store.html#special">Speciální prostředky</a>
+            <a class="subcategory" onclick="myFunction(); toggleHamburger();" href="store.html#special">Výroba na zakázku</a>
             <a onclick="downFunction(); myFunction(); toggleHamburger();" id="myBtnDowm">Kontakty</a>
           </div>
           <div class="lang-selector-mobile">
@@ -60,9 +70,10 @@
         </div>
       </div>
     </div>
-    <div class="products-section" id="cleaning">
+    <div class="products-section" id="clean">
       <div class="products-title">
         <p>Čisticí prostředky</p>
+        <a class="anchor">Cleaning</a>
       </div>
       <div class="products-grid">
         <div class="product-cell">
@@ -184,9 +195,10 @@
         </div>
       </div>
     </div>
-    <div class="products-section" id="desinfection">
+    <div class="products-section" id="des">
       <div class="products-title">
         <p>Dezinfekční prostředky</p>
+        <a class="anchor" id="desinfection">Desinfection</a>
       </div>
       <div class="products-grid">
         <div class="product-cell">
@@ -209,9 +221,10 @@
         </div>
       </div>
     </div>
-    <div class="products-section" id="combination">
+    <div class="products-section" id="comb">
       <div class="products-title">
         <p>Kombinované přípravky</p>
+        <a class="anchor" id="combination">Combination</a>
       </div>
       <div class="products-grid">
         <div class="product-cell">
@@ -252,9 +265,10 @@
         </div>
       </div>
     </div>
-    <div class="products-section" id="caring">
+    <div class="products-section" id="care">
       <div class="products-title">
         <p>Ošetřující prostředky</p>
+        <a class="anchor" id="caring">Care</a>
       </div>
       <div class="products-grid">
         <div class="product-cell">
@@ -298,6 +312,7 @@
     <div class="products-section" id="spec">
       <div class="products-title">
         <p>Speciální prostředky</p>
+        <a class="anchor" id="special">Special</a>
       </div>
       <div class="products-grid">
         <div class="product-cell">

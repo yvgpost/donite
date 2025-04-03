@@ -25,8 +25,18 @@
         <div class="menu-lang">
           <div class="menu-section">
             <a onclick="topFunction()" id="myBtnUp">Domů</a>
-            <a onclick="window.open('store.html','_top' ); return false;">Prodej výrobků</a>
-            <a onclick="downFunction()" id="myBtnDowm">Kontakty</a>
+            <div class="store-button">
+              <a onclick="window.open('store.html','_top' ); return false;">Prodej výrobků&#129134;</a>
+              <div class="menu-section-dropdown">
+                  <a class="subcategory" onclick="window.open('store.html#cleaning','_top' ); return false;">Čisticí prostředky</a>
+                  <a class="subcategory" onclick="window.open('store.html#desinfection','_top' ); return false;">Dezinfekční prostředky</a>
+                  <a class="subcategory" onclick="window.open('store.html#combination','_top' ); return false;">Kombinované přípravky</a>
+                  <a class="subcategory" onclick="window.open('store.html#caring','_top' ); return false;">Ošetřující prostředky</a>
+                  <a class="subcategory" onclick="window.open('store.html#special','_top' ); return false;">Speciální prostředky</a>
+                  <a class="subcategory" onclick="window.open('store.html#special','_top' ); return false;">Výroba na zakázku</a>
+              </div>
+            </div>
+            <a onclick="downFunction()">Kontakty</a>
           </div>
           <div class="lang-selector">
             <a style="font-weight: bold;" class="cz">CZ</a>
@@ -43,8 +53,8 @@
             <a class="subcategory" onclick="window.open('store.html#desinfection','_top' ); return false;">Dezinfekční prostředky</a>
             <a class="subcategory" onclick="window.open('store.html#combination','_top' ); return false;">Kombinované přípravky</a>
             <a class="subcategory" onclick="window.open('store.html#caring','_top' ); return false;">Ošetřující prostředky</a>
-            <a class="subcategory" onclick="window.open('store.html#spec','_top' ); return false;">Speciální prostředky</a>
-            <a class="subcategory" onclick="window.open('store.html#spec','_top' ); return false;" href="store.html#spec">Výroba na zakázku</a>
+            <a class="subcategory" onclick="window.open('store.html#special','_top' ); return false;">Speciální prostředky</a>
+            <a class="subcategory" onclick="window.open('store.html#special','_top' ); return false;" href="store.html#special">Výroba na zakázku</a>
             <a onclick="downFunction(); myFunction(); toggleHamburger();" id="myBtnDowm">Kontakty</a>
           </div>
           <div class="lang-selector-mobile">
@@ -117,7 +127,7 @@
               <img src="img/care.jpg">
           </div>
         </div>
-        <div class="product-cell" onclick="window.open('store.html#spec','_top' ); return false;">
+        <div class="product-cell" onclick="window.open('store.html#special','_top' ); return false;">
           <div class="product-cell-left" id="spacDescription">
             <h2>Speciální prostředky</h2>
             <p>Odstranění odolných nečistot: rez, vodní kámen a usazeniny</p>
