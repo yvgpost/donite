@@ -14,6 +14,7 @@ body {
 a, img, button {
   -webkit-tap-highlight-color: transparent;
   text-decoration: none;
+  color: white;
 }
 /* Header */
 .header {
@@ -328,8 +329,9 @@ padding: 1rem 1rem 0rem 1rem;
   margin: 0;
   font-weight: bold;
   padding-bottom: 1rem;
+  text-align: right;
 }
-.footer-content p {
+.footer-content p, .footer-content a {
   font-size: 1rem;
   margin: 0;
   text-align: justify;
@@ -370,6 +372,7 @@ grid-column: 2;
   margin: 0;
   font-size: 0.8rem;
   text-align: center;
+  padding: 0.5rem 0 0.5rem 0;
 }
 .qr-field {
   display: flex;
@@ -378,10 +381,12 @@ grid-column: 2;
   border-radius: 0.5rem;
   color: black;
   margin: 0;
+  align-items: center;
 }
 .qr-field p {
   margin: 0;
-  padding-top: 0.3rem;
+  padding: 0.5rem 0 0 0;
+
 }
 .qr {
   width: 6.5rem;
@@ -389,12 +394,60 @@ grid-column: 2;
 }
 .operating-hours-text {
   grid-area: operating-hours-text;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto auto auto auto auto;
+}
+.operating-hours-text p {
+  grid-column: 2;
+}
+.abas-container {
+  display: flex;
+  flex-direction: column-reverse;
+  grid-column: 1;
+  grid-row: 1 / 8;
+  width: auto;
+  height: auto;;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+.abas-container p {
+  width: 8rem;
+  margin: 0;
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 0.5rem 0 0.5rem 0;
+}
+.abas-logo {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
 }
 .links-text {
   grid-area: links-text;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto auto auto auto auto;
 }
-.map {
-  height: 8.5rem;
+.links-text a {
+grid-column: 2;
+cursor: pointer;
+}
+.payments-container {
+  display: flex;
+  flex-direction: column-reverse;
+  grid-column: 1;
+  grid-row: 1 / 8;
+  width: auto;
+  height: auto;;
+  margin-bottom: 0.5rem;
+}
+.payments-container img {
+  width: 3.3rem;
+  height: auto;
+  padding-top: 0.3rem;
 }
 .copyright {
   grid-area: copyright;
@@ -827,7 +880,7 @@ grid-column: 2;
   .details-text {
     grid-area: details-text;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto 11.875rem;
     grid-template-rows: auto auto auto auto auto auto auto;
   }
   .details-text p {
@@ -843,12 +896,15 @@ grid-column: 2;
     border-radius: 0.5rem;
     font-size: 0.8rem;
     margin-bottom: 0.5rem;
+    align-self: start;
+    justify-self: center;
   }
   .qr-container p {
     width: 6.5rem;
     margin: 0;
     font-size: 0.8rem;
     text-align: center;
+    padding-top: 0;
   }
   .qr-field {
     display: flex;
@@ -872,8 +928,67 @@ grid-column: 2;
   .links-text {
     grid-area: links-text;
   }
-  .map {
-    height: 8.5rem;
+  .operating-hours-text {
+    grid-area: operating-hours-text;
+    display: grid;
+    grid-template-columns: auto 11.875rem;
+    grid-template-rows: auto auto auto auto auto auto auto;
+  }
+  .operating-hours-text p {
+    grid-column: 2;
+  }
+  .abas-container {
+    display: flex;
+    flex-direction: column-reverse;
+    grid-column: 1;
+    grid-row: 1 / 8;
+    width: auto;
+    height: auto;;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    align-items: center;
+    justify-content: start;
+  }
+  .abas-container p {
+    width: 8rem;
+    margin: 0;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 0rem 0 0.5rem 0;
+  }
+  .abas-logo {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  .links-text {
+    grid-area: links-text;
+    display: grid;
+    grid-template-columns: auto 11.875rem;
+    grid-template-rows: auto auto auto auto auto;
+  }
+  .links-text a {
+  grid-column: 2;
+  cursor: pointer;
+  }
+  .payments-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    grid-column: 1 / 2;
+    width: auto;
+    height: auto;;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    margin: 0;
+  }
+  .payments-container img {
+    width: 3.3rem;
+    height: auto;
+    padding: 0.33rem
   }
   .copyright {
     grid-area: copyright;
