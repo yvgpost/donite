@@ -382,6 +382,7 @@ grid-column: 2;
   color: black;
   margin: 0;
   align-items: center;
+  cursor: pointer;
 }
 .qr-field p {
   margin: 0;
