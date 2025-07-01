@@ -39,16 +39,18 @@ a, img, button {
   box-sizing: border-box;
 }
 .logo-section {
-  display: flex;
-  width: 100%;
+  display: -webkit-flex;
+  width: auto;
   height: auto;
 }
 .cz-flag {
   padding: 0.4rem 0.5rem 0.4rem 0.5rem;
+  width: 3rem;
 }
 .logo {
   padding: 0.4rem 0rem 0.4rem 0rem;
   cursor: pointer;
+  width: 7rem;
 }
 .slogan {
   font-style: italic;
@@ -696,7 +698,7 @@ width: 60rem;
 height: auto;
 margin: 0 auto;
 box-sizing: border-box;
-padding: 1rem 1rem 3rem 1rem;
+padding: 1rem 1rem 2rem 1rem;
 }
 .product-breadcrumb {
   font-size: 1.1rem;
@@ -726,7 +728,7 @@ padding: 1rem 1rem 3rem 1rem;
   grid-template-rows: auto;
   box-shadow: 2px 2px 5px 0 rgba(0,0,0,.3);
   border-radius: 0.5rem;
-  background-color: #6a9dc7;
+  background-color: rgb(81, 95, 128);
 }
 .product-container img {
   height: 100%;
@@ -737,26 +739,138 @@ padding: 1rem 1rem 3rem 1rem;
   object-fit: cover;
 }
 .product-container-content {
+  display: flex;
+  flex-direction: column;
   height: auto;
   padding: 1rem;
+  justify-content: space-evenly;
 } 
 .product-name {
   font-size: 1.3rem;
   font-weight: bold;
+  margin: 0;
 }
 .product-description-title {
-  margin: 0.5rem;
+  margin: 0.5rem 0 0.5rem 0;
+  font-weight: bold;
 }
 .product-description-text {
-   margin: 0.5rem;
+  margin: 0.5rem 0 0.5rem 0;
+}
+.prices {
+  display: flex;
+  justify-content: space-between;
 }
 .price-per-unit {
-  font-size: 1.3rem;
-  margin: 0.5rem;
+  font-size: 1.1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.price-per-unit-text {
+  margin: 0.4rem 0.4rem 0.4rem 0;
+}
+.price-per-unit-numbers {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(244, 245, 248);
+  color: black;
+  border-radius: 0.5rem;
+  width: fit-content;
+}
+.vat {
+  margin: 0.15rem 0.15rem 0 0.15rem;
+  padding: 0.15rem 0.15rem 0 0.15rem;
+  text-align: center;
+}
+.no-vat {
+  margin: 0 0.15rem 0.15rem 0.15rem;
+  padding: 0 0.15rem 0.15rem 0.15rem;
+  font-size: 0.8rem;
+  text-align: center;
+}
+.usage {
+  display: flex;
+  flex-direction: column;
+  width: 60rem;
+  margin: 0 auto;
+  padding: 0 1rem 3rem 1rem;
+  box-sizing: border-box;
+}
+.usage-container {
+  box-shadow: 2px 2px 5px 0 rgba(0,0,0,.3);
+  font-size: 1.1rem;
+  margin: 0;
+  text-align: justify;
+  height: auto;
+  font-weight: 300;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.usage-content {
   display: flex;
   flex-direction: row;
 }
+.usage-content-text {
+  width: 50rem;
+}
+.usage-content p {
+  margin: 0.5rem;
+}
+.usage-content-text-title {
+  font-weight: bold;
+}
+.documents {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.pdf {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  align-items: center;
+  border: 1px solid;
+  border-radius: 0.5rem;
+  padding: 0.3rem;
+  width: 11.5rem;
+  height: 2.5rem;
+}
+.pdf img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.pdf p {
+  margin: 0.3rem;
+  height: fit-content;
+}
 
+
+
+.buy-button {
+  width: 12.5rem;
+  height: 3rem;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  margin: 0 auto;
+  border: 1px solid;
+  border-radius: 0.5rem;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.buy-button img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.buy-button p {
+  margin: 0.3rem;
+  height: fit-content;
+}
 
 
 
