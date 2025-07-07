@@ -1711,17 +1711,18 @@ padding: 1rem 1rem 2rem 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding-bottom: 0.5rem;
   }
   .price-per-unit {
     font-size: 1.1rem;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     padding: 0.1rem;
   }
   .price-per-unit-text {
-    margin: 0.4rem 0.4rem 0.4rem 0;
+    margin: 0.4rem 0.8rem 0.4rem 0;
   }
   .price-per-unit-numbers {
     display: flex;
@@ -1730,17 +1731,18 @@ padding: 1rem 1rem 2rem 1rem;
     color: black;
     border-radius: 0.5rem;
     width: fit-content;
+    align-items: center;
+    width: 14rem;
+    justify-content: space-evenly;
   }
   .vat {
-    margin: 0.15rem 0.15rem 0 0.15rem;
-    padding: 0.15rem 0.15rem 0 0.15rem;
-    text-align: center;
+    margin: 0.15rem;
+    padding: 0.15rem;
   }
   .no-vat {
-    margin: 0 0.15rem 0.15rem 0.15rem;
-    padding: 0 0.15rem 0.15rem 0.15rem;
+    margin: 0.15rem;
+    padding: 0.15rem;
     font-size: 0.8rem;
-    text-align: center;
   }
   .usage {
     display: flex;
@@ -1762,10 +1764,10 @@ padding: 1rem 1rem 2rem 1rem;
   }
   .usage-content {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
   .usage-content-text {
-    width: 50rem;
+    width: auto;
   }
   .usage-content p {
     margin: 0.5rem;
@@ -1776,7 +1778,7 @@ padding: 1rem 1rem 2rem 1rem;
   .documents {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    justify-content: center;
   }
   .pdf {
     display: flex;
@@ -1788,6 +1790,7 @@ padding: 1rem 1rem 2rem 1rem;
     padding: 0.3rem;
     width: 11.5rem;
     height: 2.5rem;
+    margin: 0.5rem;
   }
   .pdf img {
     width: 2.5rem;
@@ -1799,7 +1802,7 @@ padding: 1rem 1rem 2rem 1rem;
   }
   .buy-button {
     width: 12.5rem;
-    height: 3rem;
+    height: 2rem;
     font-size: 1.1rem;
     border-radius: 0.5rem;
     margin: 0 auto;
