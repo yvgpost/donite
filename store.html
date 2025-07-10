@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <title>Donite</title>
     <link rel="icon" type="image/x-icon" href="img/favicon.svg">
-    <script src="app.js"></script>
   </head>
   <body>
     <div class="header">
@@ -76,124 +75,13 @@
         <p>Čisticí prostředky</p>
         <a class="anchor" id="cleaning">Cleaning</a>
       </div>
-      <div class="products-grid" onclick="window.open('washclean.html','_top' ); return false;">
-        <div class="product-cell">
-          <div class="product-cell-left">
-            <h2>WASH CLEAN 6 kg</h2>
-            <p>Silně alkalický, nepěnivý čistící a odmašťující přípravek</p>
-          </div>
-          <div class="product-cell-right">
-              <img src="img/canister.jpg">
-          </div>
-        </div>
-        <div class="product-cell">
-          <div class="product-cell-left">
-            <h2>FLOOR WASH</h2>
-            <p>Silně alkalický, nepěnivý čistící a odmašťující přípravek</p>
-          </div>
-          <div class="product-cell-right">
-              <img src="img/canister.jpg">
-          </div>
-        </div>
-        <div class="product-cell">
-          <div class="product-cell-left">
-            <h2>GASTRO CLEAN</h2>
-            <p>Silně alkalický, nepěnivý čistící a odmašťující přípravek</p>
-          </div>
-          <div class="product-cell-right">
-              <img src="img/canister.jpg">
-          </div>
-        </div>
-        <div class="product-cell">
-          <div class="product-cell-left">
-            <h2>UNIPROF</h2>
-            <p>Koncentrovaný čistící přípravek na okna, voděodolné povrchy, sanitární zařízení</p>
-          </div>
-          <div class="product-cell-right">
-              <img src="img/canister.jpg">
-          </div>
-        </div>
-        <div class="product-cell">
-          <div class="product-cell-left">
-            <h2>RAMBO WC</h2>
-            <p>Přípravek (koncentrát) na odstranění rzi a vodního kamene</p>
-          </div>
-          <div class="product-cell-right">
-              <img src="img/canister.jpg">
-          </div>
-        </div>
-        <div class="product-cell">
-          <div class="product-cell-left">
-            <h2>RAMBO MILK</h2>
-            <p>Vysoce účinný prostředek k mytí silně znečištěných rukou</p>
-          </div>
-          <div class="product-cell-right">
-              <img src="img/canister.jpg">
-          </div>
-        </div>
-        <div class="product-cell">
-          <div class="product-cell-left">
-            <h2>RAMBO SAND</h2>
-            <p>Vysoce účinný přípravek pro čištění silně znečištěných povrchů různých materiálů</p>
-          </div>
-          <div class="product-cell-right">
-              <img src="img/canister.jpg">
-          </div>
-        </div>
-        <div class="product-cell">
-          <div class="product-cell-left">
-            <h2>REGIA</h2>
-            <p>Antibakteriální tekuté mýdlo na ruce</p>
-          </div>
-          <div class="product-cell-right">
-              <img src="img/canister.jpg">
-          </div>
-        </div>
-        <div class="product-cell">
-          <div class="product-cell-left">
-            <h2>LUXSOAP</h2>
-            <p>Tekuté mýdlo</p>
-          </div>
-          <div class="product-cell-right">
-              <img src="img/canister.jpg">
-          </div>
-        </div>
-        <div class="product-cell">
-          <div class="product-cell-left">
-            <h2>SPRING</h2>
-            <p>Mycí přípravek pro ruční mytí nádobí s vůní limetky</p>
-          </div>
-          <div class="product-cell-right">
-              <img src="img/canister.jpg">
-          </div>
-        </div>
-        <div class="product-cell">
-          <div class="product-cell-left">
-            <h2>RUDON</h2>
-            <p>Silně alkalický pěnivý čistící přípravek</p>
-          </div>
-          <div class="product-cell-right">
-              <img src="img/canister.jpg">
-          </div>
-        </div>
-        <div class="product-cell">
-          <div class="product-cell-left">
-            <h2>SOFT FLOOR</h2>
-            <p>Alkalický pěnivý čistící přípravek</p>
-          </div>
-          <div class="product-cell-right">
-              <img src="img/canister.jpg">
-          </div>
-        </div>
-        <div class="product-cell">
-          <div class="product-cell-left">
-            <h2>NIOSEPTOR</h2>
-            <p>Odpuzovač vody, ochranná leštěnka nerezu</p>
-          </div>
-          <div class="product-cell-right">
-              <img src="img/canister.jpg">
-          </div>
-        </div>
+      <div class="products-grid" id="productGridClean" onclick="window.open('washclean.html','_top' ); return false;">
+        
+    
+
+
+
+
       </div>
     </div>
     <div class="products-section" id="des">
@@ -445,6 +333,7 @@
     <button onclick="topFunction()" id="upBtn">
       <img class ="up-image" src="img/up.png">
     </button>
+  <script src="app.js"></script>
   <script>
     let mybuttonup = document.getElementById("myBtnUp");
     function topFunction() {
