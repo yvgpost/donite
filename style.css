@@ -37,6 +37,7 @@ a, img, button {
   padding-left: 1rem;
   padding-right: 1rem;
   box-sizing: border-box;
+  justify-content: space-between;
 }
 .logo-section {
   display: -webkit-flex;
@@ -115,23 +116,30 @@ a, img, button {
   visibility: visible;
 	transition-delay: 0.5s;
 }
-.lang-selector {
+.cart {
   display: flex;
-  width: 5rem;
-  height: auto;
-  justify-content: end;
-  font-weight: 300;
-  font-size: 0.8rem;
-  padding-top: 0.2rem;
-  align-items: flex-start;
+  width: 3.2rem;
+  height: 3rem;
+  align-items: center;
+  position: relative;
 }
-.lang-selector a {
-  padding: 0.1rem;
-  height: 1rem;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  text-decoration: none;
-  color: black;
+.cart svg {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.cart span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  background-color: red;
+  border-radius: 0.5rem;
+  color: white;
+  width: 1.3rem;
+  height: 1.3rem;
+  position: absolute;
+  right: 1px;
 }
 /* Home "About us" section */
 .aboutus {
