@@ -4,7 +4,7 @@ let generateCleanCell = () => {
     return (gridClean.innerHTML = shopItemsData.map((x)=>{
         let = {id, productName, shortDescription, img, link} = x;
         return `
-            <div id="product-id-${id}" onclick="window.open('${link}','_top' ); return false;">
+            <div id="product-id-${id}" onclick="openProductPage(${id})">
                 <div class="product-cell" id="productCellClean">
                     <div class="product-cell-left">
                         <h2>${productName}</h2>

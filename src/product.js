@@ -1,32 +1,42 @@
+console.log(shopItemsData);
+
+
 let product = document.getElementById("product");
 
-let generateProduct = () => {
-    return (product.innerHTML = `
-           <ul class="product-breadcrumb">
+// Function to fetch data by id
+let generateProduct = (id) => {
+  const item = shopItemsData.find((product) => product.id === id); // Find item by id
+
+  if (!item) {
+    console.error("Product not found");
+    return;
+  }
+  product.innerHTML = `
+     <ul class="product-breadcrumb">
         <li class="previous" onclick="window.open('store.html','_top' ); return false;">Čisticí prostředky</li>
-        <li>WASH CLEAN 6 kg</li>
+        <li>${item.productName}</li>
       </ul>
       <div class="product-container">
-        <img src="img/canister.jpg">
+        <img src="${item.img}">
         <div class="product-container-content">
-            <p class="product-name">WASH CLEAN 6 kg</p>
+            <p class="product-name">${item.productName}</p>
             <div class="product-description">
               <p class="product-description-title">Popis výrobku</p>
-              <p class="product-description-text">Silně alkalický, nepěnivý čistící a odmašťující přípravek. Používá se na vodovzdorné povrchy, podlahy a technologická zařízení v potravinářství, stravovacích provozech, bazénech, kotelnách k vnitřnímu čištění potrubí a nádrží, apod.</p>
+              <p class="product-description-text">${item.longDescription}</p>
             </div>
               <div class="prices">
               <div class="price-per-unit">
                 <p class="price-per-unit-text">Cena za kg</p>
                 <div class="price-per-unit-numbers">
-                  <p class="vat">199 Kč</p>
-                  <p class="no-vat">240,70 Kč z DPH</p>
+                  <p class="vat">${item.preicePerKg} Kč</p>
+                  <p class="no-vat">${item.pricePerKgVat} Kč z DPH</p>
                 </div>
               </div>
               <div class="price-per-unit">
                 <p class="price-per-unit-text">Cena balení</p>
                 <div class="price-per-unit-numbers">
-                  <p class="vat">1 194 Kč</p>
-                  <p class="no-vat">1 444,74 Kč z DPH</p>
+                  <p class="vat">${item.pricePerUnit} Kč</p>
+                  <p class="no-vat">${item.pricePerUnitVat} Kč z DPH</p>
                 </div>
               </div>
             </div>
@@ -36,52 +46,12 @@ let generateProduct = () => {
             </div>
         </div>
       </div>
-    `);
+    `;
 };
 
-generateProduct();
+// Get the id from the URL
+const urlParams = new URLSearchParams(window.location.search);
+const productId = parseInt(urlParams.get("id"), 10);
 
-let usage = document.getElementById("usage");
-
-let generateUsage = () => {
-    return (usage.innerHTML = `
-         <div class="usage-container">
-      <div class="usage-text">
-        <div class="usage-content">
-          <div class="usage-content-text">
-            <p class="usage-content-text-title">Návod k použití</p>
-            <p>
-              Generální úklid a odmaštění: smíchejte s vodou v poměru 1:1 – 1:20 (5 dl na 10 l vody).
-              <br>
-              Běžný úklid: smíchejte s vodou v poměru 1:100 (1dl na 10 l vody).
-            </p>
-          </div>
-          <div class="documents">
-            <div class="pdf">
-              <img src="img/pdf.png">
-              <p>Technický list</p>
-            </div> 
-          </div>
-        </div>
-      </div>
-      <div class="usage-text">
-        <div class="usage-content">
-          <div class="usage-content-text">
-            <p class="usage-content-text-title">Fyzikální a chemické vlastnosti</p>
-            <p>
-            Světležlutá  kapalina,  pH 11,0-13,5 (3% roztok při 20 °C). Zápach: slabý, charakteristický.
-            </p>
-          </div>
-          <div class="documents">
-            <div class="pdf">
-              <img src="img/pdf.png">
-              <p>Bezpečnostní list</p>
-            </div> 
-          </div>
-        </div>
-      </div>
-    </div>
-    `);
-};
-
-generateUsage()
+// Call the function with the id from the URL
+generateProduct(productId);
