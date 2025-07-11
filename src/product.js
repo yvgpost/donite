@@ -1,7 +1,7 @@
 console.log(shopItemsData);
 
 
-let product = document.getElementById("product");
+let product = document.getElementById("target");
 
 // Function to fetch data by id
 let generateProduct = (id) => {
@@ -12,7 +12,8 @@ let generateProduct = (id) => {
     return;
   }
   product.innerHTML = `
-     <ul class="product-breadcrumb">
+     <div class="product" id="product">
+      <ul class="product-breadcrumb">
         <li class="previous" onclick="window.open('store.html','_top' ); return false;">Čisticí prostředky</li>
         <li>${item.productName}</li>
       </ul>
@@ -46,6 +47,42 @@ let generateProduct = (id) => {
             </div>
         </div>
       </div>
+      </div>
+  <div class="usage" id="usage">
+  <div class="usage-container">
+        <div class="usage-text">
+          <div class="usage-content">
+            <div class="usage-content-text">
+              <p class="usage-content-text-title">Návod k použití</p>
+              <p>
+                Generální úklid a odmaštění: smíchejte s vodou v poměru 1:1 – 1:20 (5 dl na 10 l vody).
+                <br>
+                Běžný úklid: smíchejte s vodou v poměru 1:100 (1dl na 10 l vody).
+              </p>
+            </div>
+            <div class="documents">
+              <div class="pdf">
+                <img src="img/pdf.png">
+                <p>Technický list</p>
+              </div> 
+            </div>
+          </div>
+        </div>
+        <div class="usage-text">
+          <div class="usage-content">
+            <div class="usage-content-text">
+              <p class="usage-content-text-title">Fyzikální a chemické vlastnosti</p>
+              <p>
+              Světležlutá  kapalina,  pH 11,0-13,5 (3% roztok při 20 °C). Zápach: slabý, charakteristický.
+              </p>
+            </div>
+            <div class="documents">
+              <div class="pdf">
+                <img src="img/pdf.png">
+                <p>Bezpečnostní list</p>
+              </div> 
+            </div>
+         </div>
     `;
 };
 
