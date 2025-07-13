@@ -41,9 +41,8 @@ let generateProduct = (id) => {
                 </div>
               </div>
             </div>
-            <div class="buy-button">
-              <img src="img/delivery.png">
-              <p>Požádat o nákup</p>
+            <div class="buy-button" id="buy-button" onclick="increment(${id})">
+              <p>Přidat do košíku</p>
             </div>
         </div>
       </div>
@@ -92,3 +91,19 @@ const productId = parseInt(urlParams.get("id"), 10);
 
 // Call the function with the id from the URL
 generateProduct(productId);
+
+
+let increment = (id)=>{
+
+
+  basket.push({
+    id: id,
+    item: 1,
+  })
+
+  console.log(basket);
+
+
+  };
+
+let basket = [];
