@@ -1,5 +1,5 @@
 console.log(shopItemsData);
-
+let basket = [];
 
 let product = document.getElementById("target");
 
@@ -41,7 +41,7 @@ let generateProduct = (id) => {
                 </div>
               </div>
             </div>
-            <div class="buy-button" id="buy-button" onclick="increment(${id})">
+            <div class="buy-button" id="buy-button-${id}" onclick="toggleBasket(${id})">
               <p>Přidat do košíku</p>
             </div>
         </div>
@@ -85,6 +85,27 @@ let generateProduct = (id) => {
     `;
 };
 
+// Function to toggle item in basket
+let toggleBasket = (id) => {
+  const button = document.getElementById(`buy-button-${id}`);
+  const search = basket.find((x) => x.id === id);
+
+  if (search === undefined) {
+    // Add item to basket
+    basket.push({ id: id, item: 1 });
+    button.innerHTML = `<p>Odebrat z košíku</p>`;
+    button.classList.add("red-button");
+    console.log("Added to basket:", basket);
+  } else {
+    // Remove item from basket
+    basket = basket.filter((x) => x.id !== id);
+    button.innerHTML = `<p>Přidat do košíku</p>`;
+    button.classList.remove("red-button");
+    console.log("Removed from basket:", basket);
+  }
+};
+
+
 // Get the id from the URL
 const urlParams = new URLSearchParams(window.location.search);
 const productId = parseInt(urlParams.get("id"), 10);
@@ -93,6 +114,7 @@ const productId = parseInt(urlParams.get("id"), 10);
 generateProduct(productId);
 
 
+/*
 let increment = (id)=>{
 
   let search = basket.find((x)=> x.id === id);
@@ -112,5 +134,5 @@ let increment = (id)=>{
 
 
   };
+*/
 
-let basket = [];

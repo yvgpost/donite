@@ -872,6 +872,10 @@ padding: 1rem 1rem 2rem 1rem;
   cursor: pointer;
   align-items: center;
   justify-content: space-evenly;
+  background-color: rgb(71, 136, 71);
+}
+.red-button {
+  background-color: red;
 }
 .buy-button img {
   width: 2.5rem;
