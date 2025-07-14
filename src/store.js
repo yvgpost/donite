@@ -20,5 +20,3 @@ let generateCleanCell = () => {
 };
 
 generateCleanCell();
-
-let basket = [];

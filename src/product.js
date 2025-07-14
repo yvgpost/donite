@@ -95,11 +95,18 @@ generateProduct(productId);
 
 let increment = (id)=>{
 
+  let search = basket.find((x)=> x.id === id);
 
-  basket.push({
-    id: id,
-    item: 1,
-  })
+    if (search === undefined) {
+      basket.push({
+      id: id,
+      item: 1,
+    });
+    }
+    else{
+      search.item += 1;
+    };
+  
 
   console.log(basket);
 
