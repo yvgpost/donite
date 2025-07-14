@@ -1,6 +1,3 @@
-console.log(shopItemsData);
-let basket = JSON.parse(localStorage.getItem("basket")) || [];
-
 let product = document.getElementById("target");
 
 // Function to fetch data by id
@@ -11,6 +8,10 @@ let generateProduct = (id) => {
     console.error("Product not found");
     return;
   }
+
+  // Check if the product is already in the basket
+  const isInBasket = basket.find((x) => x.id === id);
+
   product.innerHTML = `
      <div class="product" id="product">
       <ul class="product-breadcrumb">
@@ -41,8 +42,8 @@ let generateProduct = (id) => {
                 </div>
               </div>
             </div>
-            <div class="buy-button" id="buy-button-${id}" onclick="toggleBasket(${id})">
-              <p>Přidat do košíku</p>
+            <div class="buy-button ${isInBasket ? "red-button" : "green-button"}" id="buy-button-${id}" onclick="toggleBasket(${id})">
+              <p>${isInBasket ? "Odebrat z košíku" : "Přidat do košíku"}</p>
             </div>
         </div>
       </div>
@@ -92,13 +93,13 @@ let toggleBasket = (id) => {
 
   if (search === undefined) {
     // Add item to basket
-    basket.push({ id: id, item: 1 }); // Add new item with quantity 1
+    basket.push({ id: id, item: 1 });
     button.innerHTML = `<p>Odebrat z košíku</p>`;
     button.classList.add("red-button");
     console.log("Added to basket:", basket);
   } else {
     // Remove item from basket
-    basket = basket.filter((x) => x.id !== id); // Remove item by id
+    basket = basket.filter((x) => x.id !== id);
     button.innerHTML = `<p>Přidat do košíku</p>`;
     button.classList.remove("red-button");
     console.log("Removed from basket:", basket);
@@ -107,8 +108,7 @@ let toggleBasket = (id) => {
   // Save basket to local storage
   localStorage.setItem("basket", JSON.stringify(basket));
 
-  update(id);
-  calculation();
+  calculation(); // Update cartAmount after modifying basket
 };
 
 
@@ -130,13 +130,6 @@ let update = (id) => {
   console.log(`Quantity of item with id ${id}:`, search.item);
   calculation();
 };
-
-let calculation = () => {
-  let cartIcon = document.getElementById("cartAmount");
-  let totalItems = basket.map((x) => x.item).reduce((x, y) => x + y, 0); // Sum up all item quantities
-  cartIcon.innerHTML = totalItems > 0 ? totalItems : 0; // Display 0 if basket is empty
-};
-
 
 /*
 let increment = (id)=>{
