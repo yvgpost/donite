@@ -103,6 +103,7 @@ let toggleBasket = (id) => {
     button.classList.remove("red-button");
     console.log("Removed from basket:", basket);
   }
+  update(id);
 };
 
 
@@ -113,6 +114,16 @@ const productId = parseInt(urlParams.get("id"), 10);
 // Call the function with the id from the URL
 generateProduct(productId);
 
+let update = (id)=>{
+  let search = basket.find((x) => x.id === id);
+  console.log(search.item);
+  calculation();
+};
+
+let calculation = () => {
+  let cartIcon = document .getElementById("cartAmount");
+  cartIcon.innerHTML = 1;
+};
 
 /*
 let increment = (id)=>{
