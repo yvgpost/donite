@@ -1,5 +1,5 @@
 console.log(shopItemsData);
-let basket = [];
+let basket = JSON.parse(localStorage.getItem("basket")) || [];
 
 let product = document.getElementById("target");
 
@@ -92,18 +92,23 @@ let toggleBasket = (id) => {
 
   if (search === undefined) {
     // Add item to basket
-    basket.push({ id: id, item: 1 });
+    basket.push({ id: id, item: 1 }); // Add new item with quantity 1
     button.innerHTML = `<p>Odebrat z košíku</p>`;
     button.classList.add("red-button");
     console.log("Added to basket:", basket);
   } else {
     // Remove item from basket
-    basket = basket.filter((x) => x.id !== id);
+    basket = basket.filter((x) => x.id !== id); // Remove item by id
     button.innerHTML = `<p>Přidat do košíku</p>`;
     button.classList.remove("red-button");
     console.log("Removed from basket:", basket);
   }
+
+  // Save basket to local storage
+  localStorage.setItem("basket", JSON.stringify(basket));
+
   update(id);
+  calculation();
 };
 
 
@@ -114,16 +119,24 @@ const productId = parseInt(urlParams.get("id"), 10);
 // Call the function with the id from the URL
 generateProduct(productId);
 
-let update = (id)=>{
+let update = (id) => {
   let search = basket.find((x) => x.id === id);
-  console.log(search.item);
+
+  if (!search) {
+    console.log(`Item with id ${id} not found in basket.`);
+    return; // Exit the function if the item is not found
+  }
+
+  console.log(`Quantity of item with id ${id}:`, search.item);
   calculation();
 };
 
 let calculation = () => {
-  let cartIcon = document .getElementById("cartAmount");
-  cartIcon.innerHTML = 1;
+  let cartIcon = document.getElementById("cartAmount");
+  let totalItems = basket.map((x) => x.item).reduce((x, y) => x + y, 0); // Sum up all item quantities
+  cartIcon.innerHTML = totalItems > 0 ? totalItems : 0; // Display 0 if basket is empty
 };
+
 
 /*
 let increment = (id)=>{
