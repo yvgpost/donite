@@ -1,6 +1,6 @@
-let shopItemsData = [   
+let cleanData = [   
     {
-        id: 1-1,
+        id: 11,
         productName: "WASHCLEAN 6 kg",
         shortDescription: "Silně alkalický, nepěnivý čistící a odmašťující přípravek",
         img: "/img/canister.jpg",
@@ -15,7 +15,7 @@ let shopItemsData = [
         safetySheet: "src/washcleansafety.pdf"
     },
     {
-        id: 1-2,
+        id: 12,
         productName: "WASHCLEAN 6 kg",
         shortDescription: "Silně alkalický, nepěnivý čistící a odmašťující přípravek",
         img: "/img/canister.jpg",

@@ -1,3 +1,6 @@
+// Import or include all product data arrays
+const shopItemsData = [...cleanData, ...desinfectionData, ...combData, ...careData, ...specData];
+
 let product = document.getElementById("target");
 
 // Function to fetch data by id
@@ -13,7 +16,7 @@ let generateProduct = (id) => {
   const isInBasket = basket.find((x) => x.id === id);
 
   product.innerHTML = `
-     <div class="product" id="product">
+     <div class="product" id="product-${item.id}">
       <ul class="product-breadcrumb">
         <li class="previous" onclick="window.open('store.html','_top' ); return false;">Čisticí prostředky</li>
         <li>${item.productName}</li>
@@ -88,27 +91,33 @@ let generateProduct = (id) => {
 
 // Function to toggle item in basket
 let toggleBasket = (id) => {
-  const button = document.getElementById(`buy-button-${id}`);
   const search = basket.find((x) => x.id === id);
 
   if (search === undefined) {
     // Add item to basket
     basket.push({ id: id, item: 1 });
-    button.innerHTML = `<p>Odebrat z košíku</p>`;
-    button.classList.add("red-button");
+    const button = document.getElementById(`buy-button-${id}`);
+    if (button) {
+      button.innerHTML = `<p>Odebrat z košíku</p>`;
+      button.classList.add("red-button");
+    }
     console.log("Added to basket:", basket);
   } else {
     // Remove item from basket
     basket = basket.filter((x) => x.id !== id);
-    button.innerHTML = `<p>Přidat do košíku</p>`;
-    button.classList.remove("red-button");
+    const button = document.getElementById(`buy-button-${id}`);
+    if (button) {
+      button.innerHTML = `<p>Přidat do košíku</p>`;
+      button.classList.remove("red-button");
+    }
     console.log("Removed from basket:", basket);
   }
 
   // Save basket to local storage
   localStorage.setItem("basket", JSON.stringify(basket));
 
-  calculation(); // Update cartAmount after modifying basket
+  // Update the basket state dynamically
+  calculation();
 };
 
 

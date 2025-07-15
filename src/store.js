@@ -1,11 +1,20 @@
-let generateStoreProducts = () => {
-    const container = document.getElementById("products-grid-clean"); // Ensure this ID matches your HTML
+document.addEventListener("DOMContentLoaded", () => {
+    generateProducts(cleanData, "products-grid-clean");
+    generateProducts(desinfectionData, "products-grid-desinfection");
+    generateProducts(combData, "products-grid-comb");
+    generateProducts(careData, "products-grid-care");
+    generateProducts(specData, "products-grid-spec");
+  });
+
+let generateProducts = (data, containerId) => {
+    const container = document.getElementById(containerId);
     container.innerHTML = ""; // Clear existing content
-  
-    shopItemsData.forEach((item) => {
-      const isInBasket = basket.find((x) => x.id === item.id); // Check if item is in the basket
-  
-      const productDiv = document.createElement("div");
+    console.log(`Container for ${containerId}:`, container);
+
+    data.forEach((item) => {
+    const isInBasket = basket.find((x) => x.id === item.id); // Check if item is in the basket
+
+    const productDiv = document.createElement("div");
       productDiv.className = "product-cell";
       productDiv.innerHTML = `
       <div class="product-all" id="product-id-${item.id}" onclick="openProductPage(${item.id})">
@@ -25,8 +34,4 @@ let generateStoreProducts = () => {
       container.appendChild(productDiv);
     });
   };
-  document.addEventListener("DOMContentLoaded", () => {
-    generateStoreProducts(); // Generate product divs on page load
-  });
-
   
