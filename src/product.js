@@ -64,7 +64,7 @@ let generateProduct = (id) => {
               <div class="pdf">
                 <img src="img/pdf.png">
                 <p>Technický list</p>
-              </div> 
+              </div>
             </div>
           </div>
         </div>

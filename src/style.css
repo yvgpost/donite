@@ -442,7 +442,7 @@ padding: 1rem 1rem 0rem 1rem;
   gap: 1rem;
   z-index: 0;
 }
-.product-cell {
+.product-all {
   display: grid;
   grid-template-columns: 1fr 1fr;
   box-shadow: 2px 2px 5px 0 rgba(0,0,0,.3);
@@ -480,6 +480,7 @@ padding: 1rem 1rem 0rem 1rem;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   box-sizing: border-box;
+  position: relative;
 }
 .product-cell-right img {
   width: 100%;
@@ -488,6 +489,13 @@ padding: 1rem 1rem 0rem 1rem;
   box-sizing: border-box;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
+}
+.small-cart {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  width: 2rem;
+  height: 2rem;
 }
 #desinfectionDescription, #des .product-cell-left {
   background-color: #899dc9;
