@@ -1,5 +1,5 @@
 let generateStoreProducts = () => {
-    const container = document.getElementById("products-grid"); // Ensure this ID matches your HTML
+    const container = document.getElementById("products-grid-clean"); // Ensure this ID matches your HTML
     container.innerHTML = ""; // Clear existing content
   
     shopItemsData.forEach((item) => {
@@ -29,17 +29,4 @@ let generateStoreProducts = () => {
     generateStoreProducts(); // Generate product divs on page load
   });
 
-  /* 
-  <div id="product-id-1" onclick="openProductPage(1)">
-                <div class="product-cell" id="productCellClean">
-                    <div class="product-cell-left">
-                        <h2>WASHCLEAN 6 kg</h2>
-                        <p>Silně alkalický, nepěnivý čistící a odmašťující přípravek</p>
-                    </div>
-                    <div class="product-cell-right">
-                        <img src="/img/canister.jpg">
-                    </div>
-                </div>
-            </div>
-
-    */
+  
