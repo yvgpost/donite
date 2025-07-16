@@ -1,6 +1,8 @@
 let cleanData = [   
     {
         id: 11,
+        category: "Čisticí prostředky",
+        link: "store.html#cleaning",
         productName: "WASHCLEAN 6 kg",
         shortDescription: "Silně alkalický, nepěnivý čistící a odmašťující přípravek",
         img: "/img/canister.jpg",
@@ -16,6 +18,8 @@ let cleanData = [
     },
     {
         id: 12,
+        category: "Čisticí prostředky",
+        link: "store.html#cleaning",
         productName: "WASHCLEAN 6 kg",
         shortDescription: "Silně alkalický, nepěnivý čistící a odmašťující přípravek",
         img: "/img/canister.jpg",
@@ -34,6 +38,8 @@ let cleanData = [
 /* Template
     {
         id: 1-1,
+        category: "Čisticí prostředky",
+        link: "store.html#cleaning",
         productName: "",
         shortDescription: "",
         img: "/img/canister.jpg",

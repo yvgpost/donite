@@ -1,6 +1,8 @@
 let careData = [   
     {
         id: 41,
+        category: "Ošetřující prostředky",
+        link: "store.html#caring",
         productName: "WASHCLEAN 6 kg",
         shortDescription: "Silně alkalický, nepěnivý čistící a odmašťující přípravek",
         img: "/img/canister.jpg",
@@ -16,6 +18,8 @@ let careData = [
     },
     {
         id: 42,
+        category: "Ošetřující prostředky",
+        link: "store.html#caring",
         productName: "WASHCLEAN 6 kg",
         shortDescription: "Silně alkalický, nepěnivý čistící a odmašťující přípravek",
         img: "/img/canister.jpg",
@@ -34,6 +38,8 @@ let careData = [
 /* Template
     {
         id: 1-1,
+        category: "Ošetřující prostředky",
+        link: "store.html#caring",
         productName: "",
         shortDescription: "",
         img: "/img/canister.jpg",

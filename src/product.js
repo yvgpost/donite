@@ -18,7 +18,8 @@ let generateProduct = (id) => {
   product.innerHTML = `
      <div class="product" id="product-${item.id}">
       <ul class="product-breadcrumb">
-        <li class="previous" onclick="window.open('store.html','_top' ); return false;">Čisticí prostředky</li>
+        <li class="previous" onclick="window.open('store.html','_top' ); return false;">Prodej výrobků</li>
+        <li class="previous" onclick="window.open('${item.link}','_top' ); return false;">${item.category}</li>
         <li>${item.productName}</li>
       </ul>
       <div class="product-container">

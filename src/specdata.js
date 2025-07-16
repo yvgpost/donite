@@ -1,6 +1,9 @@
 let specData = [   
     {
         id: 51,
+        
+        category: "Speciální prostředky",
+        link: "store.html#special",
         productName: "WASHCLEAN 6 kg",
         shortDescription: "Silně alkalický, nepěnivý čistící a odmašťující přípravek",
         img: "/img/canister.jpg",
@@ -16,6 +19,8 @@ let specData = [
     },
     {
         id: 52,
+        category: "Speciální prostředky",
+        link: "store.html#special",
         productName: "WASHCLEAN 6 kg",
         shortDescription: "Silně alkalický, nepěnivý čistící a odmašťující přípravek",
         img: "/img/canister.jpg",
@@ -34,6 +39,8 @@ let specData = [
 /* Template
     {
         id: 1-1,
+        category: "Speciální prostředky",
+        link: "store.html#special",
         productName: "",
         shortDescription: "",
         img: "/img/canister.jpg",

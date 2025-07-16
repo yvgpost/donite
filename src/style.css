@@ -723,7 +723,8 @@ padding: 1rem 1rem 2rem 1rem;
 }
 .product-breadcrumb {
   font-size: 1.1rem;
-  margin: 0;
+  margin: 0 0 0 auto;
+
   font-weight: bold;
   color: rgb(4, 35, 99);
   list-style: none;

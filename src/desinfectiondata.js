@@ -1,6 +1,8 @@
 let desinfectionData = [   
     {
         id: 21,
+        category: "Dezinfekční prostředky",
+        link: "store.html#desinfection",
         productName: "WASHCLEAN 6 kg",
         shortDescription: "Silně alkalický, nepěnivý čistící a odmašťující přípravek",
         img: "/img/canister.jpg",
@@ -16,6 +18,8 @@ let desinfectionData = [
     },
     {
         id: 22,
+        category: "Dezinfekční prostředky",
+        link: "store.html#desinfection",
         productName: "WASHCLEAN 6 kg",
         shortDescription: "Silně alkalický, nepěnivý čistící a odmašťující přípravek",
         img: "/img/canister.jpg",
@@ -34,6 +38,8 @@ let desinfectionData = [
 /* Template
     {
         id: 1-1,
+        category: "Dezinfekční prostředky",
+        link: "store.html#desinfection",
         productName: "",
         shortDescription: "",
         img: "/img/canister.jpg",
