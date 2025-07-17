@@ -97,21 +97,11 @@ let toggleBasket = (id) => {
   if (search === undefined) {
     // Add item to basket
     basket.push({ id: id, item: 1 });
-    const button = document.getElementById(`buy-button-${id}`);
-    if (button) {
-      button.innerHTML = `<p>Odebrat z košíku</p>`;
-      button.classList.add("red-button");
-    }
     console.log("Added to basket:", basket);
   } else {
-    // Remove item from basket
-    basket = basket.filter((x) => x.id !== id);
-    const button = document.getElementById(`buy-button-${id}`);
-    if (button) {
-      button.innerHTML = `<p>Přidat do košíku</p>`;
-      button.classList.remove("red-button");
-    }
-    console.log("Removed from basket:", basket);
+    // If the item is already in the basket, increase its quantity
+    search.item += 1;
+    console.log(`Increased quantity of item with id ${id}:`, basket);
   }
 
   // Save basket to local storage
