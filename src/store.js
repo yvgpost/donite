@@ -34,4 +34,4 @@ let generateProducts = (data, containerId) => {
       container.appendChild(productDiv);
     });
   };
-  
+

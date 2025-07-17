@@ -189,26 +189,3 @@ let update = (id) => {
   console.log(`Quantity of item with id ${id}:`, search.item);
   calculation();
 };
-
-/*
-let increment = (id)=>{
-
-  let search = basket.find((x)=> x.id === id);
-
-    if (search === undefined) {
-      basket.push({
-      id: id,
-      item: 1,
-    });
-    }
-    else{
-      search.item += 1;
-    };
-  
-
-  console.log(basket);
-
-
-  };
-*/
-

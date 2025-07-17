@@ -1,7 +1,6 @@
 let specData = [   
     {
         id: 51,
-        
         category: "Speciální prostředky",
         categoryColor: "#c13540",
         link: "store.html#special",
