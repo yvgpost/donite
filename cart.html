@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="cs">
   <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="src/style.css?v=2.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=M+PLUS+Rounded+1c&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Donite</title>
     <link rel="icon" type="image/x-icon" href="img/favicon.svg">
   </head>
@@ -23,37 +21,37 @@
         </div>
         <div class="menu-lang">
           <div class="menu-section">
-            <a onclick="topFunction()" id="myBtnUp" href="index.html">Domů</a>
+            <a onclick="window.open('index.html','_top' ); return false;">Domů</a>
             <div class="store-button">
-              <a onclick="window.open('store.html','_top' ); return false;">Prodej výrobků&searr;</a>
+              <a onclick="topFunction()" id="myBtnUp">Prodej výrobků&searr;</a>
               <div class="menu-section-dropdown">
                   <a class="subcategory" onclick="window.open('store.html#cleaning','_top' ); return false;">Čisticí prostředky</a>
                   <a class="subcategory" onclick="window.open('store.html#desinfection','_top' ); return false;">Dezinfekční prostředky</a>
                   <a class="subcategory" onclick="window.open('store.html#combination','_top' ); return false;">Kombinované přípravky</a>
                   <a class="subcategory" onclick="window.open('store.html#caring','_top' ); return false;">Ošetřující prostředky</a>
                   <a class="subcategory" onclick="window.open('store.html#special','_top' ); return false;">Speciální prostředky</a>
-                  <a class="subcategory" onclick="window.open('store.html#special','_top' ); return false;">Výroba na zakázku</a>
+                  <a class="subcategory" onclick="window.open('contracting.html','_top' ); return false;">Výroba na zakázku</a>
               </div>
             </div>
-            <a onclick="downFunction()">Kontakty</a>
+            <a onclick="downFunction()" id="myBtnDowm">Kontakty</a>
           </div>
           <div class="cart" onclick="window.open('cart.html','_top' ); return false;">
             <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
-            </svg> 
-            <span id="cartAmount">0</span>           
-          </div>           
+            </svg>
+            <span id="cartAmount">0</span>                      
+          </div>        
         </div>
         <div class="menu-lang-mobile" id="menuLang">
           <div class="menu-section-mobile">
-            <a onclick="topFunction(); myFunction(); toggleHamburger();" id="myBtnUp">Domů</a>
-            <a onclick="window.open('store.html','_top' ); return false;">Prodej výrobků</a>
-            <a class="subcategory" onclick="window.open('store.html#cleaning','_top' ); return false;">Čisticí prostředky</a>
-            <a class="subcategory" onclick="window.open('store.html#desinfection','_top' ); return false;">Dezinfekční prostředky</a>
-            <a class="subcategory" onclick="window.open('store.html#combination','_top' ); return false;">Kombinované přípravky</a>
-            <a class="subcategory" onclick="window.open('store.html#caring','_top' ); return false;">Ošetřující prostředky</a>
-            <a class="subcategory" onclick="window.open('store.html#special','_top' ); return false;">Speciální prostředky</a>
-            <a class="subcategory" onclick="window.open('store.html#special','_top' ); return false;" href="store.html#special">Výroba na zakázku</a>
+            <a onclick="window.open('index.html','_top' ); return false;">Domů</a>
+            <a onclick="topFunction(); myFunction(); toggleHamburger();" id="myBtnUp">Prodej výrobků</a>
+            <a class="subcategory" onclick="myFunction(); toggleHamburger();" href="store.html#cleaning">Čisticí prostředky</a>
+            <a class="subcategory" onclick="myFunction(); toggleHamburger();" href="store.html#desinfection">Dezinfekční prostředky</a>
+            <a class="subcategory" onclick="myFunction(); toggleHamburger();" href="store.html#combination">Kombinované přípravky</a>
+            <a class="subcategory" onclick="myFunction(); toggleHamburger();" href="store.html#caring">Ošetřující prostředky</a>
+            <a class="subcategory" onclick="myFunction(); toggleHamburger();" href="store.html#special">Speciální prostředky</a>
+            <a class="subcategory" onclick="myFunction(); toggleHamburger();" href="contracting.html">Výroba na zakázku</a>
             <a onclick="downFunction(); myFunction(); toggleHamburger();" id="myBtnDowm">Kontakty</a>
           </div>
           <div class="lang-selector-mobile">
@@ -72,91 +70,18 @@
         </div>
       </div>
     </div>
-    <div class="contracting">
-        <div class="contracting-title">
-          <p>Výroba na zakázku</p>
-        </div>
-        <div class="contracting-container">
-           <img src="img/contracting.jpg"> <div class="contracting-container-text">
-            <p>Hledáte spolehlivého partnera pro výrobu detergentů a dezinfekcí? Potřebujete specifické složení nebo balení pro vaše čisticí a dezinfekční prostředky?</p> 
-            <p>My Vám to zajistíme! Jsme Váš zkušený výrobce na zakázku. Nabízíme flexibilní smluvní výrobu, přizpůsobenou Vašim individuálním požadavkům. Od vývoje po finální produkt, jsme tu pro Vás.
-            </p>
-            <p> Vysoce kvalitní čisticí a dezinfekční prostředky přesně podle Vašich potřeb. 
-            </p>
-            <p>
-              Donite s.r.o. - Váš partner pro čistotu a hygienu.            
-              Svěřte nám svou výrobu a získejte produkty s garancí kvality a efektivity. Kontaktujte nás pro nezávaznou konzultaci!
-            </p>
-            </div>
-            
-        </div>
-    </div>
-    <div class="contracting-form">
-      <div class="contracting-form-title">
-        <p>Kontaktní formulář</p>
+    <div class="products-section" id="clean">
+      <div class="products-title">
+        <p>Košík</p>
       </div>
+      <div class="products-grid-cart" id="products-grid-cart">
 
-
-      <div class="contracting-form-container">
-
-
-        <form class="form" id="form" method="POST" action="send-email.php">
-          
-          
-          
-          <div class="form-fields" id="name">
-            <label for="name">Jméno</label>
-            <input type="text" name="name" id="name" required>        
-          </div>
-
-
-          <div class="form-fields" id="surname">
-            <label for="surname">Příjmení</label>
-            <input type="text" name="surname" id="surname" required>
-          </div>
-
-
-          <div class="form-fields" id="company">
-            <label for="surname">Společnost</label>
-            <input type="text" name="company" id="company" required>
-          </div>  
-
-
-          <div class="form-fields" id="email">
-            <label for="email">E-mail</label>
-            <input type="email" name="email" id="email" placeholder="např. mail@adress.com" required>
-          </div> 
-
-
-          <div class="form-fields" id="phone">
-            <label for="phone">Telefonní číslo</label>           
-            <input id="phone" type="tel" name="phone" placeholder="např. +420 111 222 333"
-            maxlength="16" required>
-            <p>Uveďte kód země pro mezinárodní hovory</p>
-          </div>
-
-
-          <div class="form-fields" id="message">
-            <label for="message">Jak Vám můžeme pomoct? </label>
-            <textarea name="message" id="message" required></textarea>      
-          </div>
-
-
-          <div class="form-fields" id="checkbox">
-            <input type="checkbox" name="checkbox" required>
-            <label for="checkbox">Souhlas se zpracováním <a href="privacypolicy.html" target="_blank">osobních údajů</a></label>
-          </div>
-
-
-          <input class="form-fields" type="submit" id="submit" name="send" value="Odeslat">
+        
 
 
 
-
-        </form>
       </div>
     </div>
-
     <div class="footer">
       <div class="footer-content">
           <div class="details-title">
@@ -222,6 +147,13 @@
       <img class ="up-image" src="img/up.png">
     </button>
   <script src="src/shared.js"></script>
+  <script src="src/store.js"></script>
+  <script src="src/cleandata.js"></script>
+  <script src="src/desinfectiondata.js"></script>
+  <script src="src/combdata.js"></script>
+  <script src="src/caredata.js"></script>
+  <script src="src/specdata.js"></script>
+  
   <script>
     let mybuttonup = document.getElementById("myBtnUp");
     function topFunction() {
@@ -259,6 +191,9 @@
     function topFunction() {
       document.body.scrollTop = 0; 
       document.documentElement.scrollTop = 0;
+    }
+    function openProductPage(id) {
+    window.location.href = `product.html?id=${id}`;
     }
   </script>
   </body>
