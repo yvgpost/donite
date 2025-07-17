@@ -750,7 +750,6 @@ padding: 1rem 1rem 2rem 1rem;
   grid-template-rows: auto;
   box-shadow: 2px 2px 5px 0 rgba(0,0,0,.3);
   border-radius: 0.5rem;
-  background-color: rgb(81, 95, 128);
 }
 .product-container img {
   height: 100%;
@@ -766,6 +765,8 @@ padding: 1rem 1rem 2rem 1rem;
   height: auto;
   padding: 1rem;
   justify-content: space-evenly;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 } 
 .product-name {
   font-size: 1.3rem;
@@ -870,11 +871,20 @@ padding: 1rem 1rem 2rem 1rem;
 .buy-button {
   width: 12.5rem;
   height: 3rem;
+  margin: 0 auto;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.koupit {
+  width: 12.5rem;
+  height: 3rem;
   font-size: 1.1rem;
   border-radius: 0.5rem;
   margin: 0 auto;
   border: 1px solid;
-  border-radius: 0.5rem;
   color: white;
   display: flex;
   flex-direction: row;
@@ -883,17 +893,30 @@ padding: 1rem 1rem 2rem 1rem;
   justify-content: space-evenly;
   background-color: rgb(71, 136, 71);
 }
-.green-button {
-  background-color: green;
+.increment, .decrement, .counter {
+  width: 3.5rem;
+  height: 3rem;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  margin: 0 auto;
+  border: 1px solid;
   color: white;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  align-items: center;
+  justify-content: space-evenly;
 }
-.red-button {
+.increment {
+  background-color: rgb(71, 136, 71);
+}
+.decrement {
   background-color: red;
-  color: white;
 }
-.buy-button img {
-  width: 2.5rem;
-  height: 2.5rem;
+.counter {
+  background-color: white;
+  color: black;
+  border: none;
 }
 .buy-button p {
   margin: 0.3rem;

@@ -2,6 +2,7 @@ let combData = [
     {
         id: 31,
         category: "Kombinované přípravky",
+        categoryColor: "#008fe1",
         link: "store.html#combination",
         productName: "WASHCLEAN 6 kg",
         shortDescription: "Silně alkalický, nepěnivý čistící a odmašťující přípravek",
@@ -19,6 +20,7 @@ let combData = [
     {
         id: 32,
         category: "Kombinované přípravky",
+        categoryColor: "#008fe1",
         link: "store.html#combination",
         productName: "WASHCLEAN 6 kg",
         shortDescription: "Silně alkalický, nepěnivý čistící a odmašťující přípravek",
@@ -39,6 +41,7 @@ let combData = [
     {
         id: 1-1,
         category: "Kombinované přípravky",
+        categoryColor: "#008fe1",
         link: "store.html#combination",
         productName: "",
         shortDescription: "",

@@ -2,6 +2,7 @@ let cleanData = [
     {
         id: 11,
         category: "Čisticí prostředky",
+        categoryColor: "rgb(51, 70, 116)",
         link: "store.html#cleaning",
         productName: "WASHCLEAN 6 kg",
         shortDescription: "Silně alkalický, nepěnivý čistící a odmašťující přípravek",
@@ -19,6 +20,7 @@ let cleanData = [
     {
         id: 12,
         category: "Čisticí prostředky",
+        categoryColor: "rgb(51, 70, 116)",
         link: "store.html#cleaning",
         productName: "WASHCLEAN 6 kg",
         shortDescription: "Silně alkalický, nepěnivý čistící a odmašťující přípravek",
@@ -39,6 +41,7 @@ let cleanData = [
     {
         id: 1-1,
         category: "Čisticí prostředky",
+        categoryColor: "rgb(51, 70, 116)",
         link: "store.html#cleaning",
         productName: "",
         shortDescription: "",

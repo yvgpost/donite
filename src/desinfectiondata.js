@@ -2,6 +2,7 @@ let desinfectionData = [
     {
         id: 21,
         category: "Dezinfekční prostředky",
+        categoryColor: "#899dc9",
         link: "store.html#desinfection",
         productName: "WASHCLEAN 6 kg",
         shortDescription: "Silně alkalický, nepěnivý čistící a odmašťující přípravek",
@@ -19,6 +20,7 @@ let desinfectionData = [
     {
         id: 22,
         category: "Dezinfekční prostředky",
+        categoryColor: "#899dc9",
         link: "store.html#desinfection",
         productName: "WASHCLEAN 6 kg",
         shortDescription: "Silně alkalický, nepěnivý čistící a odmašťující přípravek",
@@ -39,6 +41,7 @@ let desinfectionData = [
     {
         id: 1-1,
         category: "Dezinfekční prostředky",
+        categoryColor: "#899dc9",
         link: "store.html#desinfection",
         productName: "",
         shortDescription: "",

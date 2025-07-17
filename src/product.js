@@ -24,7 +24,7 @@ let generateProduct = (id) => {
       </ul>
       <div class="product-container">
         <img src="${item.img}">
-        <div class="product-container-content">
+        <div class="product-container-content" style="background-color: ${item.categoryColor};">
             <p class="product-name">${item.productName}</p>
             <div class="product-description">
               <p class="product-description-title">Popis výrobku</p>
@@ -54,7 +54,7 @@ let generateProduct = (id) => {
                     <span class="counter">${search.item}</span>
                     <button class="increment" onclick="increment(${id})">+</button>
                   `
-                  : `<button onclick="toggleBasket(${id})">Přidat do košíku</button>`
+                  : `<button class="koupit" onclick="toggleBasket(${id})">Přidat do košíku</button>`
               }
             </div>
         </div>
@@ -159,7 +159,7 @@ let decrement = (id) => {
     basket = basket.filter((x) => x.id !== id);
     const button = document.getElementById(`buy-button-${id}`);
     if (button) {
-      button.innerHTML = `<button onclick="toggleBasket(${id})">Přidat do košíku</button>`;
+      button.innerHTML = `<button class="koupit" onclick="toggleBasket(${id})">Přidat do košíku</button>`;
     }
     console.log(`Removed item with id ${id} from basket:`, basket);
   }
