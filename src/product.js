@@ -13,7 +13,7 @@ let generateProduct = (id) => {
   }
 
   // Check if the product is already in the basket
-  const isInBasket = basket.find((x) => x.id === id);
+  const search = basket.find((x) => x.id === id);
 
   product.innerHTML = `
      <div class="product" id="product-${item.id}">
@@ -46,8 +46,16 @@ let generateProduct = (id) => {
                 </div>
               </div>
             </div>
-            <div class="buy-button ${isInBasket ? "red-button" : "green-button"}" id="buy-button-${id}" onclick="toggleBasket(${id})">
-              <p>${isInBasket ? "Odebrat z košíku" : "Přidat do košíku"}</p>
+            <div class="buy-button" id="buy-button-${id}">
+              ${
+                search
+                  ? `
+                    <button class="decrement" onclick="decrement(${id})">-</button>
+                    <span class="counter">${search.item}</span>
+                    <button class="increment" onclick="increment(${id})">+</button>
+                  `
+                  : `<button onclick="toggleBasket(${id})">Přidat do košíku</button>`
+              }
             </div>
         </div>
       </div>
@@ -94,14 +102,18 @@ let generateProduct = (id) => {
 let toggleBasket = (id) => {
   const search = basket.find((x) => x.id === id);
 
-  if (search === undefined) {
+  if (!search) {
     // Add item to basket
     basket.push({ id: id, item: 1 });
+    const button = document.getElementById(`buy-button-${id}`);
+    if (button) {
+      button.innerHTML = `
+        <button class="decrement" onclick="decrement(${id})">-</button>
+        <span class="counter">1</span>
+        <button class="increment" onclick="increment(${id})">+</button>
+      `;
+    }
     console.log("Added to basket:", basket);
-  } else {
-    // If the item is already in the basket, increase its quantity
-    search.item += 1;
-    console.log(`Increased quantity of item with id ${id}:`, basket);
   }
 
   // Save basket to local storage
@@ -111,6 +123,53 @@ let toggleBasket = (id) => {
   calculation();
 };
 
+let increment = (id) => {
+  const search = basket.find((x) => x.id === id);
+
+  if (search) {
+    // Increase the quantity by 1
+    search.item += 1;
+    const counter = document.querySelector(`#buy-button-${id} .counter`);
+    if (counter) {
+      counter.textContent = search.item; // Update the counter display
+    }
+    console.log(`Incremented item with id ${id}:`, basket);
+  }
+
+  // Save basket to local storage
+  localStorage.setItem("basket", JSON.stringify(basket));
+
+  // Update the basket state dynamically
+  calculation();
+};
+
+let decrement = (id) => {
+  const search = basket.find((x) => x.id === id);
+
+  if (search && search.item > 1) {
+    // Decrease the quantity by 1
+    search.item -= 1;
+    const counter = document.querySelector(`#buy-button-${id} .counter`);
+    if (counter) {
+      counter.textContent = search.item; // Update the counter display
+    }
+    console.log(`Decremented item with id ${id}:`, basket);
+  } else if (search && search.item === 1) {
+    // Remove item from basket if quantity is 1
+    basket = basket.filter((x) => x.id !== id);
+    const button = document.getElementById(`buy-button-${id}`);
+    if (button) {
+      button.innerHTML = `<button onclick="toggleBasket(${id})">Přidat do košíku</button>`;
+    }
+    console.log(`Removed item with id ${id} from basket:`, basket);
+  }
+
+  // Save basket to local storage
+  localStorage.setItem("basket", JSON.stringify(basket));
+
+  // Update the basket state dynamically
+  calculation();
+};
 
 // Get the id from the URL
 const urlParams = new URLSearchParams(window.location.search);
