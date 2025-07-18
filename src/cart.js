@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="cart-item">
           <div class="cart-item-details">
             <img src="${product.img}" alt="${product.productName}" class="cart-item-img">
-            <p class="cart-item-name">${product.productName}</p>
+            <p class="cart-item-name" onclick="openProductPage(${product.id})">${product.productName}</p>
             <div class="cart-item-counter">
               <button class="decrement" onclick="decrement(${product.id})">-</button>
               <span class="counter">${product.quantity}</span>

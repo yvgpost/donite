@@ -974,6 +974,9 @@ padding: 1rem 1rem 2rem 1rem;
   flex-direction: row;
   justify-content: space-evenly;
 }
+.cart-item-name {
+  cursor: pointer;
+}
 /* Mobile divs */
 .mobile-menu-btn {
   display: none;
