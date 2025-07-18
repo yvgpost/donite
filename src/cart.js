@@ -14,7 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const formatPrice = (priceInCents) => {
-    return (priceInCents / 100).toFixed(2).replace(".", ",") + " Kč";
+    const price = priceInCents / 100; // Convert cents to decimal
+    return new Intl.NumberFormat("cs-CZ", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }).format(price) + " Kč";
   };
 
   let fetchBasketData = () => {
@@ -34,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return {
         ...product,
         quantity: basketItem.item,
-        totalPrice: product.pricePerUnitVat * basketItem.item, // Total price in cents
+        totalPrice: product.pricePerUnit * basketItem.item, // Total price in cents
       };
     });
   
@@ -73,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <span class="counter">${product.quantity}</span>
               <button class="increment" onclick="increment(${product.id})">+</button>
             </div>
-            <p class="cart-item-total">Cena (s DPH): ${formatPrice(product.totalPrice)}</p>
+            <p class="cart-item-total">Cena (bez DPH): ${formatPrice(product.totalPrice)}</p>
           </div>
         </div>
       `;
