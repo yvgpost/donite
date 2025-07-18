@@ -3,6 +3,10 @@ const shopItemsData = [...cleanData, ...desinfectionData, ...combData, ...careDa
 
 let product = document.getElementById("target");
 
+const formatPrices = (priceInCents) => {
+  return (priceInCents / 100).toFixed(2).replace(".", ",") + " Kč";
+};
+
 // Function to fetch data by id
 let generateProduct = (id) => {
   const item = shopItemsData.find((product) => product.id === id); // Find item by id
@@ -34,15 +38,15 @@ let generateProduct = (id) => {
               <div class="price-per-unit">
                 <p class="price-per-unit-text">Cena za kg</p>
                 <div class="price-per-unit-numbers">
-                  <p class="vat">${item.preicePerKg} Kč</p>
-                  <p class="no-vat">${item.pricePerKgVat} Kč z DPH</p>
+                  <p class="vat">${formatPrices(item.preicePerKg)}</p>
+                  <p class="no-vat">${formatPrices(item.pricePerKgVat)} z DPH</p>
                 </div>
               </div>
               <div class="price-per-unit">
                 <p class="price-per-unit-text">Cena balení</p>
                 <div class="price-per-unit-numbers">
-                  <p class="vat">${item.pricePerUnit} Kč</p>
-                  <p class="no-vat">${item.pricePerUnitVat} Kč z DPH</p>
+                  <p class="vat">${formatPrices(item.pricePerUnit)}</p>
+                  <p class="no-vat">${formatPrices(item.pricePerUnitVat)} z DPH</p>
                 </div>
               </div>
             </div>
@@ -97,6 +101,7 @@ let generateProduct = (id) => {
          </div>
     `;
 };
+
 
 // Function to toggle item in basket
 let toggleBasket = (id) => {
@@ -188,4 +193,7 @@ let update = (id) => {
 
   console.log(`Quantity of item with id ${id}:`, search.item);
   calculation();
+};
+const formatPrice = (priceInCents) => {
+  return (priceInCents / 100).toFixed(2).replace(".", ",") + " Kč";
 };

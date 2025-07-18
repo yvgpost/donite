@@ -962,7 +962,18 @@ padding: 1rem 1rem 2rem 1rem;
   font-weight: bold;
   color: #257a56;
 }
-
+.cart-item {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border: solid 1px;
+  border-radius: 0.5rem;
+}
+.cart-item-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
 /* Mobile divs */
 .mobile-menu-btn {
   display: none;
