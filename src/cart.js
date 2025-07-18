@@ -1,6 +1,7 @@
 // Import or include all product data arrays
 const shopItemsData = [...cleanData, ...desinfectionData, ...combData, ...careData, ...specData];
 
+
 document.addEventListener("DOMContentLoaded", () => {
     const cartContainer = document.getElementById("products-grid-cart");
   
@@ -19,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let fetchBasketData = () => {
     if (!basket || basket.length === 0) {
       console.log("Basket is empty.");
-      return [];
+      return []; // Return an empty array if the basket is empty
     }
   
     const basketData = basket.map((basketItem) => {
@@ -27,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
       if (!product) {
         console.warn(`Product with id ${basketItem.id} not found in shopItemsData.`);
-        return null;
+        return null; // Handle missing product gracefully
       }
   
       return {
@@ -37,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
       };
     });
   
-    return basketData.filter((item) => item !== null);
+    return basketData.filter((item) => item !== null); // Filter out null values
   };
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -53,12 +54,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const cartContainer = document.getElementById("products-grid-cart");
     cartContainer.innerHTML = "";
   
-    if (basketData.length === 0) {
+    if (!basketData || basketData.length === 0) {
       cartContainer.innerHTML = "<p>Košík je prázdný.</p>";
       return;
     }
   
-    let list = document.createElement("ol");
+    let list = document.createElement("div");
   
     basketData.forEach((product) => {
       let listItem = document.createElement("div");
@@ -82,5 +83,30 @@ document.addEventListener("DOMContentLoaded", () => {
     cartContainer.appendChild(list);
   };
 
-console.log(document.getElementById("products-grid-cart"));
-console.log("CareData:", careData);
+  let increment = (id) => {
+    const search = basket.find((x) => x.id === id);
+  
+    if (search) {
+      search.item += 1; // Increment the quantity
+      localStorage.setItem("basket", JSON.stringify(basket)); // Save to localStorage
+      updateCartList(fetchBasketData()); // Refresh the cart list
+    }
+    calculation();
+  };
+  
+  let decrement = (id) => {
+    const search = basket.find((x) => x.id === id);
+  
+    if (search && search.item > 1) {
+      search.item -= 1; // Decrement the quantity
+      localStorage.setItem("basket", JSON.stringify(basket)); // Save to localStorage
+      updateCartList(fetchBasketData()); // Refresh the cart list
+    } else if (search && search.item === 1) {
+      basket = basket.filter((x) => x.id !== id); // Remove item from basket
+      localStorage.setItem("basket", JSON.stringify(basket)); // Save to localStorage
+      updateCartList(fetchBasketData()); // Refresh the cart list
+    }
+    calculation();
+  };
+  console.log(calculation);
+  
