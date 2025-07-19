@@ -977,6 +977,22 @@ padding: 1rem 1rem 2rem 1rem;
 .cart-item-name {
   cursor: pointer;
 }
+.cart-totals {
+  margin-top: 20px;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.cart-totals .totals {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cart-totals .totals p {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
 /* Mobile divs */
 .mobile-menu-btn {
   display: none;

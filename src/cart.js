@@ -65,6 +65,9 @@ document.addEventListener("DOMContentLoaded", () => {
   
     let list = document.createElement("div");
   
+    let totalPriceWithoutVAT = 0;
+    let totalPriceWithVAT = 0;
+  
     basketData.forEach((product) => {
       let listItem = document.createElement("div");
       listItem.innerHTML = `
@@ -82,9 +85,24 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `;
       list.appendChild(listItem);
+  
+      // Accumulate totals
+      totalPriceWithoutVAT += product.totalPrice; // Total price without VAT
+      totalPriceWithVAT += product.totalPrice * 1.21; // Assuming 21% VAT
     });
   
     cartContainer.appendChild(list);
+  
+    // Add a div for the total prices
+    const totalsDiv = document.createElement("div");
+    totalsDiv.className = "cart-totals";
+    totalsDiv.innerHTML = `
+      <div class="totals">
+        <p class="total-without-vat">Celková cena (bez DPH): ${formatPrice(totalPriceWithoutVAT)}</p>
+        <p class="total-with-vat">Celková cena (s DPH, 21 %): ${formatPrice(totalPriceWithVAT)}</p>
+      </div>
+    `;
+    cartContainer.appendChild(totalsDiv);
   };
 
   let increment = (id) => {
