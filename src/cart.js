@@ -100,9 +100,18 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="totals">
         <p class="total-without-vat">Celková cena (bez DPH): ${formatPrice(totalPriceWithoutVAT)}</p>
         <p class="total-with-vat">Celková cena (s DPH, 21 %): ${formatPrice(totalPriceWithVAT)}</p>
+        <button class="clear-cart-button" onclick="clearCart()">Vyprázdnit košík</button>
+        <button class="open-order-form-button" onclick="openOrderForm()">Otevřít objednávkový formulář</button>
       </div>
     `;
     cartContainer.appendChild(totalsDiv);
+  };
+
+  let clearCart = () => {
+    basket = []; // Clear the basket
+    localStorage.setItem("basket", JSON.stringify(basket)); // Save the empty basket to localStorage
+    updateCartList(fetchBasketData()); // Refresh the cart list
+    calculation(); // Update the basket counter
   };
 
   let increment = (id) => {
@@ -131,4 +140,80 @@ document.addEventListener("DOMContentLoaded", () => {
     calculation();
   };
   console.log(calculation);
+
+  let openOrderForm = () => {
+    const cartContainer = document.getElementById("products-grid-cart");
+    const existingForm = document.getElementById("order-form");
   
+    // Prevent multiple forms from being added
+    if (existingForm) {
+      alert("Objednávkový formulář je již otevřen."); // "The order form is already open."
+      return;
+    }
+  
+    const orderForm = document.createElement("form");
+    orderForm.id = "order-form";
+    orderForm.innerHTML = `
+      <h3>Objednávkový formulář</h3>
+      <input type="text" name="name" placeholder="Jméno" required />
+      <input type="text" name="surname" placeholder="Příjmení" required />
+      <input type="text" name="companyName" placeholder="Název společnosti" />
+      <input type="text" name="icNumber" placeholder="IČ" />
+      <input type="text" name="dicNumber" placeholder="DIČ" />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="text" name="phone" placeholder="Telefon" required />
+      <textarea name="deliveryAddress" placeholder="Dodací adresa" required></textarea>
+      <textarea name="orderDetails" readonly>${generateOrderDetails(fetchBasketData())}</textarea>
+      <button type="button" onclick="submitOrder()">Odeslat objednávku</button>
+    `;
+    cartContainer.appendChild(orderForm);
+  };
+
+  let generateOrderDetails = (basketData) => {
+    return basketData
+      .map(
+        (product) =>
+          `${product.productName} - Množství: ${product.quantity}, Cena za kus: ${formatPrice(
+            product.pricePerUnit
+          )}, Celkem: ${formatPrice(product.totalPrice)}`
+      )
+      .join("\n");
+  };
+
+  let submitOrder = async () => {
+    const form = document.getElementById("order-form");
+    const formData = new FormData(form);
+  
+    try {
+      const response = await fetch("send_order.php", {
+        method: "POST",
+        body: formData,
+      });
+  
+      if (response.ok) {
+        alert("Děkujeme za vaši objednávku!"); // "Thank you for your order!"
+        // Show a thank-you message
+        const thankYouMessage = document.createElement("div");
+        thankYouMessage.className = "thank-you-message";
+        thankYouMessage.innerHTML = `
+          <h2>Děkujeme za vaši objednávku!</h2>
+          <p>Budete přesměrováni na hlavní stránku za 5 sekund.</p>
+        `;
+        document.body.appendChild(thankYouMessage);
+  
+        // Clear the basket and local storage
+        basket = [];
+        localStorage.setItem("basket", JSON.stringify(basket));
+  
+        // Redirect to the main page after 5 seconds
+        setTimeout(() => {
+          window.location.href = "index.html"; // Replace with your main page URL
+        }, 5000);
+      } else {
+        alert("Došlo k chybě při odesílání objednávky."); // "An error occurred while sending the order."
+      }
+    } catch (error) {
+      console.error("Error submitting order:", error);
+      alert("Došlo k chybě při odesílání objednávky."); // "An error occurred while sending the order."
+    }
+  };
