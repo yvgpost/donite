@@ -946,6 +946,27 @@ padding: 1rem 1rem 2rem 1rem;
 }
 /* Cart page */
 
+.empty-cart {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(244, 245, 248);
+  margin-bottom: 3rem;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  box-shadow: 2px 2px 5px 0 rgba(0,0,0,.3);
+  font-size: 1.3rem;
+  align-items: center;
+  font-weight: bold;
+  color: rgb(4, 35, 99);  
+}
+
+
+.empty-cart img {
+  height: 20rem;
+  width: 20rem;
+  margin-bottom: 3rem;
+}
+
 .cart-item-countainer {
   width: 60rem;
   box-sizing: border-box;

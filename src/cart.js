@@ -59,7 +59,12 @@ document.addEventListener("DOMContentLoaded", () => {
     cartContainer.innerHTML = "";
   
     if (!basketData || basketData.length === 0) {
-      cartContainer.innerHTML = "<p>Košík je prázdný.</p>"; // "The cart is empty."
+      cartContainer.innerHTML = `
+      <div class="empty-cart">
+        <p>Košík je prázdný</p>
+        <img src="img/empty_cart.png">
+      
+      `; // "The cart is empty."
       return;
     }
   
@@ -146,41 +151,45 @@ document.addEventListener("DOMContentLoaded", () => {
     calculation(); // Update the small cart counter
   };
   
-  let decrement = (id) => {
+let decrement = (id) => {
   const search = basket.find((x) => x.id === id);
 
-  if (search && search.item > 1) {
-    search.item -= 1; // Decrement the quantity
-  } else if (search && search.item === 1) {
-    basket = basket.filter((x) => x.id !== id); // Remove the product from the basket if the quantity is 1
-
-    // If the basket is now empty, clear the cart
-    if (basket.length === 0) {
-      clearCart(); // Call the clearCart function to handle emptying the basket
-      return; // Exit the function early since the basket is now empty
-    }
+  // If product is not found, do nothing.
+  if (!search) {
+    console.warn(`Product with id ${id} not found in the basket.`);
+    return;
   }
 
-  localStorage.setItem("basket", JSON.stringify(basket)); // Save the updated basket to localStorage
-
-  // Update the specific cart item in the DOM
   const cartItem = document.getElementById(`cart-item-${id}`);
-  if (cartItem) {
-    if (search && search.item > 0) {
+
+  // If quantity is 1, remove the item from the basket.
+  if (search.item === 1) {
+    basket = basket.filter((x) => x.id !== id);
+    if (cartItem) {
+      cartItem.remove();
+    }
+  } else {
+    // Otherwise, just decrement the quantity.
+    search.item -= 1;
+    if (cartItem) {
       const product = shopItemsData.find((x) => x.id === id);
-      cartItem.querySelector(".counter").textContent = search.item; // Update the quantity
-      cartItem.querySelector(".cart-item-units").textContent = `${product.amount * search.item} ${product.unit}`; // Update the total units
-      cartItem.querySelector(".cart-item-total").textContent = `${formatPrice(product.pricePerUnit * search.item)} (bez DPH)`; // Update the total price
-    } else {
-      cartItem.remove(); // Remove the cart item from the DOM if the quantity is 0
+      cartItem.querySelector(".counter").textContent = search.item;
+      cartItem.querySelector(".cart-item-units").textContent = `${product.amount * search.item} ${product.unit}`;
+      cartItem.querySelector(".cart-item-total").textContent = `${formatPrice(product.pricePerUnit * search.item)} (bez DPH)`;
     }
   }
 
+  // After any change, update totals and save the basket.
   if (window.location.pathname.includes("cart.html")) {
-    updateTotals(); // Update totals dynamically only on cart.html
+    updateTotals();
   }
 
-  calculation(); // Update the small cart counter
+  if (basket.length === 0) {
+    clearCart();
+  }
+
+  calculation();
+  localStorage.setItem("basket", JSON.stringify(basket));
 };
 
   let openOrderForm = () => {
