@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
         thankYouMessage.className = "thank-you-message";
         thankYouMessage.innerHTML = `
           <h2>Děkujeme za vaši objednávku!</h2>
-          <p>Budete přesměrováni na hlavní stránku za 5 sekund.</p>
+          <p>Budete přesměrováni na hlavní stránku</p>
         `;
         document.body.appendChild(thankYouMessage);
   

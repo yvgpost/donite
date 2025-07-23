@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $deliveryAddress = htmlspecialchars($_POST["deliveryAddress"]);
     $orderDetails = htmlspecialchars($_POST["orderDetails"]);
 
-    $to = "info@donite.cz"; // Replace with your email
+    $to = "yvgpost@gmail.com"; // Replace with your email
     $subject = "Nová objednávka od $name $surname";
     $message = "
         <html>
