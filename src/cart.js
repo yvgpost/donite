@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cartContainer.innerHTML = "";
   
     if (!basketData || basketData.length === 0) {
-      cartContainer.innerHTML = "<p>Košík je prázdný.</p>";
+      cartContainer.innerHTML = "<p>Košík je prázdný.</p>"; // "The cart is empty."
       return;
     }
   
@@ -71,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
     basketData.forEach((product) => {
       let listItem = document.createElement("div");
+      listItem.id = `cart-item-${product.id}`; // Add a unique ID for each cart item
       listItem.innerHTML = `
         <div class="cart-item">
           <div class="cart-item-details">
@@ -95,18 +96,20 @@ document.addEventListener("DOMContentLoaded", () => {
   
     cartContainer.appendChild(list);
   
-    // Add a div for the total prices
-    const totalsDiv = document.createElement("div");
-    totalsDiv.className = "cart-totals";
-    totalsDiv.innerHTML = `
-      <div class="totals">
-        <p class="total-without-vat">Celková cena (bez DPH): ${formatPrice(totalPriceWithoutVAT)}</p>
-        <p class="total-with-vat">Celková cena (s DPH, 21 %): ${formatPrice(totalPriceWithVAT)}</p>
-        <button class="clear-cart-button" onclick="clearCart()">Vyprázdnit košík</button>
-        <button class="open-order-form-button" onclick="openOrderForm()">Otevřít objednávkový formulář</button>
-      </div>
-    `;
-    cartContainer.appendChild(totalsDiv);
+    // Update totals only on cart.html
+    if (window.location.pathname.includes("cart.html")) {
+      const totalsDiv = document.createElement("div");
+      totalsDiv.className = "cart-totals";
+      totalsDiv.innerHTML = `
+        <div class="totals">
+          <p class="total-without-vat">Celková cena (bez DPH): ${formatPrice(totalPriceWithoutVAT)}</p>
+          <p class="total-with-vat">Celková cena (s DPH, 21 %): ${formatPrice(totalPriceWithVAT)}</p>
+          <button class="clear-cart-button" onclick="clearCart()">Vyprázdnit košík</button>
+          <button class="open-order-form-button" onclick="openOrderForm()">Otevřít objednávkový formulář</button>
+        </div>
+      `;
+      cartContainer.appendChild(totalsDiv);
+    }
   };
 
   let clearCart = () => {
@@ -121,27 +124,64 @@ document.addEventListener("DOMContentLoaded", () => {
   
     if (search) {
       search.item += 1; // Increment the quantity
-      localStorage.setItem("basket", JSON.stringify(basket)); // Save to localStorage
-      updateCartList(fetchBasketData()); // Refresh the cart list
+    } else {
+      basket.push({ id: id, item: 1 }); // Add the product to the basket if it doesn't exist
     }
-    calculation();
+  
+    localStorage.setItem("basket", JSON.stringify(basket)); // Save the updated basket to localStorage
+  
+    // Update the specific cart item in the DOM
+    const cartItem = document.getElementById(`cart-item-${id}`);
+    if (cartItem) {
+      const product = shopItemsData.find((x) => x.id === id);
+      cartItem.querySelector(".counter").textContent = search.item; // Update the quantity
+      cartItem.querySelector(".cart-item-units").textContent = `${product.amount * search.item} ${product.unit}`; // Update the total units
+      cartItem.querySelector(".cart-item-total").textContent = `${formatPrice(product.pricePerUnit * search.item)} (bez DPH)`; // Update the total price
+    }
+  
+    if (window.location.pathname.includes("cart.html")) {
+      updateTotals(); // Update totals dynamically only on cart.html
+    }
+  
+    calculation(); // Update the small cart counter
   };
   
   let decrement = (id) => {
-    const search = basket.find((x) => x.id === id);
-  
-    if (search && search.item > 1) {
-      search.item -= 1; // Decrement the quantity
-      localStorage.setItem("basket", JSON.stringify(basket)); // Save to localStorage
-      updateCartList(fetchBasketData()); // Refresh the cart list
-    } else if (search && search.item === 1) {
-      basket = basket.filter((x) => x.id !== id); // Remove item from basket
-      localStorage.setItem("basket", JSON.stringify(basket)); // Save to localStorage
-      updateCartList(fetchBasketData()); // Refresh the cart list
+  const search = basket.find((x) => x.id === id);
+
+  if (search && search.item > 1) {
+    search.item -= 1; // Decrement the quantity
+  } else if (search && search.item === 1) {
+    basket = basket.filter((x) => x.id !== id); // Remove the product from the basket if the quantity is 1
+
+    // If the basket is now empty, clear the cart
+    if (basket.length === 0) {
+      clearCart(); // Call the clearCart function to handle emptying the basket
+      return; // Exit the function early since the basket is now empty
     }
-    calculation();
-  };
-  console.log(calculation);
+  }
+
+  localStorage.setItem("basket", JSON.stringify(basket)); // Save the updated basket to localStorage
+
+  // Update the specific cart item in the DOM
+  const cartItem = document.getElementById(`cart-item-${id}`);
+  if (cartItem) {
+    if (search && search.item > 0) {
+      const product = shopItemsData.find((x) => x.id === id);
+      cartItem.querySelector(".counter").textContent = search.item; // Update the quantity
+      cartItem.querySelector(".cart-item-units").textContent = `${product.amount * search.item} ${product.unit}`; // Update the total units
+      cartItem.querySelector(".cart-item-total").textContent = `${formatPrice(product.pricePerUnit * search.item)} (bez DPH)`; // Update the total price
+    } else {
+      cartItem.remove(); // Remove the cart item from the DOM if the quantity is 0
+    }
+  }
+
+  if (window.location.pathname.includes("cart.html")) {
+    updateTotals(); // Update totals dynamically only on cart.html
+  }
+
+  calculation(); // Update the small cart counter
+};
 
   let openOrderForm = () => {
     const cartContainer = document.getElementById("products-grid-cart");
@@ -217,5 +257,23 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (error) {
       console.error("Error submitting order:", error);
       alert("Došlo k chybě při odesílání objednávky."); // "An error occurred while sending the order."
+    }
+  };
+
+  let updateTotals = () => {
+    const basketData = fetchBasketData();
+  
+    const totalPriceWithoutVAT = basketData.reduce((sum, product) => sum + product.totalPrice, 0);
+    const totalPriceWithVAT = totalPriceWithoutVAT * 1.21; // Assuming 21% VAT
+  
+    // Update total prices in the DOM
+    const totalWithoutVATElement = document.querySelector(".total-without-vat");
+    if (totalWithoutVATElement) {
+      totalWithoutVATElement.textContent = `Celková cena (bez DPH): ${formatPrice(totalPriceWithoutVAT)}`;
+    }
+  
+    const totalWithVATElement = document.querySelector(".total-with-vat");
+    if (totalWithVATElement) {
+      totalWithVATElement.textContent = `Celková cena (s DPH, 21 %): ${formatPrice(totalPriceWithVAT)}`;
     }
   };
