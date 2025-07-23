@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   
     let list = document.createElement("div");
+    list.classList.add("cart-item-container");
   
     let totalPriceWithoutVAT = 0;
     let totalPriceWithVAT = 0;
@@ -80,7 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
               <span class="counter">${product.quantity}</span>
               <button class="increment" onclick="increment(${product.id})">+</button>
             </div>
-            <p class="cart-item-total">Cena (bez DPH): ${formatPrice(product.totalPrice)}</p>
+            <p class="cart-item-units">${product.amount * product.quantity} ${product.unit}</p>
+            <p class="cart-item-total">${formatPrice(product.totalPrice)} (bez DPH)</p>
           </div>
         </div>
       `;
