@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="cart-item">
           <div class="cart-item-details">
             <img src="${product.img}" alt="${product.productName}" class="cart-item-img">
-            <p class="cart-item-name" onclick="openProductPage(${product.id})">${product.productName}</p>
+            <p class="cart-item-name" style="background-color: ${product.categoryColor};" onclick="openProductPage(${product.id})">${product.productName}</p>
             <div class="cart-item-counter">
               <button class="decrement" onclick="decrement(${product.id})">-</button>
               <span class="counter">${product.quantity}</span>
@@ -107,11 +107,15 @@ document.addEventListener("DOMContentLoaded", () => {
       totalsDiv.className = "cart-totals";
       totalsDiv.innerHTML = `
         <div class="totals">
+        <div class="sums">
           <p class="total-without-vat">Celková cena (bez DPH): ${formatPrice(totalPriceWithoutVAT)}</p>
           <p class="total-with-vat">Celková cena (s DPH, 21 %): ${formatPrice(totalPriceWithVAT)}</p>
-          <button class="clear-cart-button" onclick="clearCart()">Vyprázdnit košík</button>
-          <button class="open-order-form-button" onclick="openOrderForm()">Otevřít objednávkový formulář</button>
         </div>
+        <div class="cart-totals-buttons">
+          <button class="clear-cart-button" onclick="clearCart()">Vyprázdnit košík</button>
+          <button class="open-order-form-button" onclick="openOrderForm()">Objednat</button>
+        </div>
+          </div>
       `;
       cartContainer.appendChild(totalsDiv);
     }

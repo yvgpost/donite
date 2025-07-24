@@ -30,7 +30,6 @@ let generateProducts = (data, containerId) => {
                         </div>
       </div>
       `;
-  
       container.appendChild(productDiv);
     });
   };
