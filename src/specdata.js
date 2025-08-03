@@ -24,7 +24,7 @@ let specData = [
         category: "Speciální prostředky",
         categoryColor: "#c13540",
         link: "store.html#special",
-        productName: "JARDA SUPER CLEAN 6 kg",
+        productName: "SUPER CLEAN 6 kg",
         unit: "kg",
         amount: 6,
         shortDescription: "Silně alkalický, nepěnivý čistící a odmašťující přípravek",

@@ -214,10 +214,10 @@ let openOrderForm = () => {
         <input type="text" name="dicNumber" placeholder="DIČ" />
         <input type="email" name="email" placeholder="Email" required />
         <input type="text" name="phone" placeholder="Telefon" required />
-        <textarea name="deliveryAddress" placeholder="Dodací adresa" required></textarea>
+        <input type="adress" name="deliveryAddress" placeholder="Dodací adresa" required></textarea>
         <textarea class="order-text-area-details" name="orderDetails" readonly>${generateOrderDetails(fetchBasketData())}</textarea>
       </div>
-    <button type="button" onclick="submitOrder()">Odeslat objednávku</button>
+    <button class="send-order-button" type="button" onclick="submitOrder()">Odeslat objednávku</button>
   `;
   cartContainer.appendChild(orderForm);
 
