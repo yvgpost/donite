@@ -246,23 +246,33 @@ let openOrderForm = () => {
   localStorage.setItem("orderFormOpen", "true");
 };
 
-  let generateOrderDetails = (basketData) => {
-    return basketData
-      .map(
-        (product) =>
-          `${product.productName} - Množství: ${product.quantity}, Cena za kus: ${formatPrice(
-            product.pricePerUnit
-          )}, Celkem: ${formatPrice(product.totalPrice)}`
-      )
-      .join("\n");
-  };
+let generateOrderDetails = (basketData) => {
+  // Calculate totals from the basket data
+  const totalPriceWithoutVAT = basketData.reduce((sum, product) => sum + product.totalPrice, 0);
+  const totalPriceWithVAT = totalPriceWithoutVAT * 1.21; // Assuming 21% VAT
+
+  // Generate the list of products
+  const productLines = basketData
+    .map(
+      (product) =>
+        `${product.productName} - Množství: ${product.quantity}, Cena za kus: ${formatPrice(
+          product.pricePerUnit
+        )}, Celkem: ${formatPrice(product.totalPrice)}`
+    )
+    .join("\n");
+
+  // Combine product lines with the totals
+  return `${productLines}\n\n----------------------------------\nCelková cena (bez DPH): ${formatPrice(
+    totalPriceWithoutVAT
+  )}\nCelková cena (s DPH, 21 %): ${formatPrice(totalPriceWithVAT)}`;
+};
 
   let submitOrder = async () => {
     const form = document.getElementById("order-form");
     const formData = new FormData(form);
   
     try {
-      const response = await fetch("send_order.php", {
+      const response = await fetch("src/send_order.php", {
         method: "POST",
         body: formData,
       });
