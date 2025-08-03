@@ -1,17 +1,22 @@
 // Import or include all product data arrays
 const shopItemsData = [...cleanData, ...desinfectionData, ...combData, ...careData, ...specData];
 
-
 document.addEventListener("DOMContentLoaded", () => {
-    const cartContainer = document.getElementById("products-grid-cart");
-  
-    if (!cartContainer) {
-      console.error("Cart container not found in the DOM.");
-      return;
-    }
-  
-    updateCartList(); // Call your function to update the cart list
-  });
+  // First, render the cart items based on the basket
+  const basketData = fetchBasketData();
+  updateCartList(basketData);
+
+  // Then, check if the order form should be reopened
+  const isOrderFormOpen = localStorage.getItem("orderFormOpen");
+
+  // Only reopen the form if it was open before AND the basket is not empty
+  if (isOrderFormOpen === "true" && basket.length > 0) {
+    openOrderForm();
+  } else {
+    // Otherwise, ensure the flag is cleared if the basket is empty
+    localStorage.removeItem("orderFormOpen");
+  }
+});
 
   const formatPrice = (priceInCents) => {
     const price = priceInCents / 100; // Convert cents to decimal
@@ -44,15 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
   
     return basketData.filter((item) => item !== null); // Filter out null values
   };
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const basketData = fetchBasketData();
-    console.log("Basket Data:", basketData);
-  
-    if (basketData.length > 0) {
-      updateCartList(basketData); // Pass the fetched data to updateCartList
-    }
-  });
 
   let updateCartList = (basketData) => {
     const cartContainer = document.getElementById("products-grid-cart");
@@ -122,9 +118,10 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   let clearCart = () => {
+    closeOrderForm(); // Close the form and clear its state from localStorage
     basket = []; // Clear the basket
     localStorage.setItem("basket", JSON.stringify(basket)); // Save the empty basket to localStorage
-    updateCartList(fetchBasketData()); // Refresh the cart list
+    updateCartList(fetchBasketData()); // Refresh the cart list to show it's empty
     calculation(); // Update the basket counter
   };
 
@@ -153,76 +150,101 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   
     calculation(); // Update the small cart counter
+    updateOrderForm(); // Update only the order details
   };
+
+  let decrement = (id) => {
+    const search = basket.find((x) => x.id === id);
   
-let decrement = (id) => {
-  const search = basket.find((x) => x.id === id);
-
-  // If product is not found, do nothing.
-  if (!search) {
-    console.warn(`Product with id ${id} not found in the basket.`);
-    return;
-  }
-
-  const cartItem = document.getElementById(`cart-item-${id}`);
-
-  // If quantity is 1, remove the item from the basket.
-  if (search.item === 1) {
-    basket = basket.filter((x) => x.id !== id);
-    if (cartItem) {
-      cartItem.remove();
-    }
-  } else {
-    // Otherwise, just decrement the quantity.
-    search.item -= 1;
-    if (cartItem) {
-      const product = shopItemsData.find((x) => x.id === id);
-      cartItem.querySelector(".counter").textContent = search.item;
-      cartItem.querySelector(".cart-item-units").textContent = `${product.amount * search.item} ${product.unit}`;
-      cartItem.querySelector(".cart-item-total").textContent = `${formatPrice(product.pricePerUnit * search.item)} (bez DPH)`;
-    }
-  }
-
-  // After any change, update totals and save the basket.
-  if (window.location.pathname.includes("cart.html")) {
-    updateTotals();
-  }
-
-  if (basket.length === 0) {
-    clearCart();
-  }
-
-  calculation();
-  localStorage.setItem("basket", JSON.stringify(basket));
-};
-
-  let openOrderForm = () => {
-    const cartContainer = document.getElementById("products-grid-cart");
-    const existingForm = document.getElementById("order-form");
-  
-    // Prevent multiple forms from being added
-    if (existingForm) {
-      alert("Objednávkový formulář je již otevřen."); // "The order form is already open."
+    if (!search) {
+      console.warn(`Product with id ${id} not found in the basket.`);
       return;
     }
   
-    const orderForm = document.createElement("form");
-    orderForm.id = "order-form";
-    orderForm.innerHTML = `
-      <h3>Objednávkový formulář</h3>
-      <input type="text" name="name" placeholder="Jméno" required />
-      <input type="text" name="surname" placeholder="Příjmení" required />
-      <input type="text" name="companyName" placeholder="Název společnosti" />
-      <input type="text" name="icNumber" placeholder="IČ" />
-      <input type="text" name="dicNumber" placeholder="DIČ" />
-      <input type="email" name="email" placeholder="Email" required />
-      <input type="text" name="phone" placeholder="Telefon" required />
-      <textarea name="deliveryAddress" placeholder="Dodací adresa" required></textarea>
-      <textarea name="orderDetails" readonly>${generateOrderDetails(fetchBasketData())}</textarea>
-      <button type="button" onclick="submitOrder()">Odeslat objednávku</button>
-    `;
-    cartContainer.appendChild(orderForm);
+    const cartItem = document.getElementById(`cart-item-${id}`);
+  
+    if (search.item === 1) {
+      basket = basket.filter((x) => x.id !== id);
+      if (cartItem) {
+        cartItem.remove();
+      }
+    } else {
+      search.item -= 1;
+      if (cartItem) {
+        const product = shopItemsData.find((x) => x.id === id);
+        cartItem.querySelector(".counter").textContent = search.item;
+        cartItem.querySelector(".cart-item-units").textContent = `${product.amount * search.item} ${product.unit}`;
+        cartItem.querySelector(".cart-item-total").textContent = `${formatPrice(product.pricePerUnit * search.item)} (bez DPH)`;
+      }
+    }
+  
+    if (window.location.pathname.includes("cart.html")) {
+      updateTotals();
+    }
+  
+    if (basket.length === 0) {
+      clearCart();
+    }
+  
+    calculation();
+    localStorage.setItem("basket", JSON.stringify(basket));
+    updateOrderForm(); // Update only the order details
   };
+
+let openOrderForm = () => {
+  const cartContainer = document.getElementById("products-grid-cart");
+  const existingForm = document.getElementById("order-form");
+
+  // Prevent multiple forms from being added
+  if (existingForm) {
+    alert("Objednávkový formulář je již otevřen."); // "The order form is already open."
+    return;
+  }
+
+  const orderForm = document.createElement("form");
+  orderForm.id = "order-form";
+  orderForm.className = "order-form";
+  orderForm.innerHTML = `
+    <h3>Údaje zákazníka</h3>
+      <div class="input-fields">
+        <input type="text" name="name" placeholder="Jméno" required />
+        <input type="text" name="surname" placeholder="Příjmení" required />
+        <input type="text" name="companyName" placeholder="Název společnosti" />
+        <input type="text" name="icNumber" placeholder="IČ" />
+        <input type="text" name="dicNumber" placeholder="DIČ" />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="text" name="phone" placeholder="Telefon" required />
+        <textarea name="deliveryAddress" placeholder="Dodací adresa" required></textarea>
+        <textarea class="order-text-area-details" name="orderDetails" readonly>${generateOrderDetails(fetchBasketData())}</textarea>
+      </div>
+    <button type="button" onclick="submitOrder()">Odeslat objednávku</button>
+  `;
+  cartContainer.appendChild(orderForm);
+
+  // Restore saved form data from localStorage
+  const savedData = JSON.parse(localStorage.getItem("orderFormData"));
+  if (savedData) {
+    Object.keys(savedData).forEach(key => {
+      const field = orderForm.querySelector(`[name="${key}"]`);
+      // --- Defensive check: DO NOT restore the orderDetails field ---
+      if (field && key !== "orderDetails") {
+        field.value = savedData[key];
+      }
+    });
+  }
+
+   // Add event listener to save form data on input
+   orderForm.addEventListener("input", () => {
+    const formData = new FormData(orderForm);
+    const data = Object.fromEntries(formData.entries());
+    // --- FIX: Do not save the generated order details ---
+    delete data.orderDetails; 
+    localStorage.setItem("orderFormData", JSON.stringify(data));
+  });
+
+  // Save the state of the order form in localStorage
+  localStorage.setItem("orderFormOpen", "true");
+};
 
   let generateOrderDetails = (basketData) => {
     return basketData
@@ -246,6 +268,7 @@ let decrement = (id) => {
       });
   
       if (response.ok) {
+        closeOrderForm(); // Close the form and clear its state
         alert("Děkujeme za vaši objednávku!"); // "Thank you for your order!"
         // Show a thank-you message
         const thankYouMessage = document.createElement("div");
@@ -289,4 +312,32 @@ let decrement = (id) => {
     if (totalWithVATElement) {
       totalWithVATElement.textContent = `Celková cena (s DPH, 21 %): ${formatPrice(totalPriceWithVAT)}`;
     }
+  };
+
+  let updateOrderForm = () => {
+    const orderForm = document.getElementById("order-form");
+    // Only proceed if the order form is actually on the page
+    if (!orderForm) {
+      return;
+    }
+  
+    const orderDetailsTextarea = orderForm.querySelector("textarea[name='orderDetails']");
+    
+    if (orderDetailsTextarea) {
+      const newDetails = generateOrderDetails(fetchBasketData());
+      // Use .value to set the content of a form element
+      orderDetailsTextarea.value = newDetails; 
+    }
+  };
+
+  let closeOrderForm = () => {
+    const form = document.getElementById("order-form");
+    if (form) {
+      form.remove(); // Remove the order form from the DOM
+      console.log("Order form has been closed.");
+    }
+  
+    // Clear the state of the order form in localStorage
+    localStorage.removeItem("orderFormOpen");
+    localStorage.removeItem("orderFormData"); // Also clear the saved form data
   };
