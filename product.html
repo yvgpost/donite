@@ -18,19 +18,18 @@
       <div class="header-content">
         <div class="logo-section">
           <img class="logo" onclick="window.open('index.html','_top' ); return false;" src="img/logo.svg">
-          <img class="cz-flag" src="img/czflag.svg">
-          <p class="slogan">Vyrobeno v České republice</p>
+          <img id="sargo" class="logo" onclick="window.open('https://www.sargo.be','_top' ); return false;" src="img/sargo2.svg">
         </div>
         <div class="menu-lang">
           <div class="menu-section">
-            <a onclick="window.open('index.html','_top' ); return false;">Domů</a>
+            <a onclick="window.open('index.html','_top' ); return false;" id="myBtnUp">Domů</a>
             <div class="store-button">
               <a onclick="window.open('store.html','_top' ); return false;">Prodej výrobků&searr;</a>
               <div class="menu-section-dropdown">
                   <a class="subcategory" onclick="window.open('store.html#cleaning','_top' ); return false;">Čisticí prostředky</a>
                   <a class="subcategory" onclick="window.open('store.html#desinfection','_top' ); return false;">Dezinfekční prostředky</a>
-                  <a class="subcategory" onclick="window.open('store.html#combination','_top' ); return false;">Kombinované přípravky</a>
                   <a class="subcategory" onclick="window.open('store.html#caring','_top' ); return false;">Ošetřující prostředky</a>
+                  <a class="subcategory" onclick="window.open('store.html#combination','_top' ); return false;">Ekologická neutralizace zápachu a odmašťování</a>
                   <a class="subcategory" onclick="window.open('store.html#special','_top' ); return false;">Speciální prostředky</a>
                   <a class="subcategory" onclick="window.open('contracting.html','_top' ); return false;">Výroba na zakázku</a>
               </div>
@@ -41,13 +40,13 @@
             <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
             </svg> 
-            <span id="cartAmount">0</span>                      
+            <span id="cartAmount">0</span>           
           </div>        
         </div>
         <div class="menu-lang-mobile" id="menuLang">
           <div class="menu-section-mobile">
             <a onclick="topFunction(); myFunction(); toggleHamburger();" id="myBtnUp">Domů</a>
-            <a onclick="window.open('home.html','_top' ); return false;">Prodej výrobků</a>
+            <a onclick="window.open('store.html','_top' ); return false;">Prodej výrobků</a>
             <a class="subcategory" onclick="window.open('store.html#cleaning','_top' ); return false;">Čisticí prostředky</a>
             <a class="subcategory" onclick="window.open('store.html#desinfection','_top' ); return false;">Dezinfekční prostředky</a>
             <a class="subcategory" onclick="window.open('store.html#combination','_top' ); return false;">Kombinované přípravky</a>
@@ -89,7 +88,7 @@
             <p>Česká republika</p>
             <div class="qr-container">
               <div class="qr-field" onclick="window.open('/donite.vcf','_top' ); return false;">
-                <p>Scan or tap</p>
+                <img class="click" src="img/click.jpg">
                 <img class="qr" src="img/qr.svg">
               </div>
               <div class="qr-field">
@@ -122,13 +121,6 @@
             <a>Reklamace a vrácení zboží</a>
             <a>Ochrana osobních údajů</a>
             <a>Mapa stránek</a>
-            <div class="payments-container">
-              <img id="p5" src="img/applepay.svg">              
-              <img id="p4" src="img/googlepay.svg">              
-              <img id="p3" src="img/mastercard.svg">              
-              <img id="p2" src="img/visa.svg">
-              <img id="p1" src="img/bankpay2.png">
-            </div>
           </div>
         <div class="copyright">
           <p>© 2025 Donite s.r.o.</p>

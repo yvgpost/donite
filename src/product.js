@@ -74,13 +74,9 @@ let generateProduct = (id) => {
           <div class="usage-content">
             <div class="usage-content-text">
               <p class="usage-content-text-title">Návod k použití</p>
-              <p>
-                Generální úklid a odmaštění: smíchejte s vodou v poměru 1:1 – 1:20 (5 dl na 10 l vody).
-                <br>
-                Běžný úklid: smíchejte s vodou v poměru 1:100 (1dl na 10 l vody).
-              </p>
+              <p>${item.howToUse}</p>
             </div>
-            <div class="documents">
+            <div class="documents" onclick="window.open('/${item.dataSheet}','_top' ); return false;">
               <div class="pdf">
                 <img src="img/pdf.png">
                 <p>Technický list</p>
@@ -92,11 +88,9 @@ let generateProduct = (id) => {
           <div class="usage-content">
             <div class="usage-content-text">
               <p class="usage-content-text-title">Fyzikální a chemické vlastnosti</p>
-              <p>
-              Světležlutá  kapalina,  pH 11,0-13,5 (3% roztok při 20 °C). Zápach: slabý, charakteristický.
-              </p>
+              <p>${item.properties}</p>
             </div>
-            <div class="documents">
+            <div class="documents" onclick="window.open('/${item.safetySheet}','_top' ); return false;">
               <div class="pdf">
                 <img src="img/pdf.png">
                 <p>Bezpečnostní list</p>
