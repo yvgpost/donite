@@ -6,6 +6,14 @@ document.addEventListener("DOMContentLoaded", () => {
     generateProducts(specData, "products-grid-spec");
   });
 
+const formatPrice = (priceInCents) => {
+  const price = priceInCents / 100; // Convert cents to decimal
+  return new Intl.NumberFormat("cs-CZ", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(price) + " Kč";
+};
+
 let generateProducts = (data, containerId) => {
     const container = document.getElementById(containerId);
     container.innerHTML = ""; // Clear existing content
@@ -21,6 +29,10 @@ let generateProducts = (data, containerId) => {
                         <div class="product-cell-left">
                             <h2>${item.productName}</h2>
                             <p>${item.shortDescription}</p>
+                              <div style="align-self: center; margin-top: auto; align-items: center;" class="price-per-unit-numbers">
+                                <p class="vat" style="font-weight: 600">${formatPrice(item.pricePerUnit)}</p>
+                                <p class="no-vat">${formatPrice(item.pricePerUnitVat)} s DPH</p>
+                              </div>
                         </div>
                         <div class="product-cell-right">
                             <img src="${item.img}" >

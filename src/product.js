@@ -40,17 +40,17 @@ let generateProduct = (id) => {
             </div>
               <div class="prices">
               <div class="price-per-unit">
-                <p class="price-per-unit-text">Cena za kg</p>
+                <p class="price-per-unit-text">Cena za ${item.unit}</p>
                 <div class="price-per-unit-numbers">
                   <p class="vat">${formatPrice(item.preicePerKg)}</p>
-                  <p class="no-vat">${formatPrice(item.pricePerKgVat)} z DPH</p>
+                  <p class="no-vat">${formatPrice(item.pricePerKgVat)} s DPH</p>
                 </div>
               </div>
               <div class="price-per-unit">
                 <p class="price-per-unit-text">Cena balení</p>
                 <div class="price-per-unit-numbers">
                   <p class="vat">${formatPrice(item.pricePerUnit)}</p>
-                  <p class="no-vat">${formatPrice(item.pricePerUnitVat)} z DPH</p>
+                  <p class="no-vat">${formatPrice(item.pricePerUnitVat)} s DPH</p>
                 </div>
               </div>
             </div>

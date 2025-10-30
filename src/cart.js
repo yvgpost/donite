@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <button class="increment" onclick="increment(${product.id})">+</button>
             </div>
             <p class="cart-item-units">${product.amount * product.quantity} ${product.unit}</p>
-            <p class="cart-item-total">${formatPrice(product.totalPrice)} (bez DPH)</p>
+            <p class="cart-item-total">${formatPrice(product.totalPrice)} (bes DPH)</p>
           </div>
         </div>
       `;
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
       totalsDiv.innerHTML = `
         <div class="totals">
         <div class="sums">
-          <p class="total-without-vat">Celková cena (bez DPH): ${formatPrice(totalPriceWithoutVAT)}</p>
+          <p class="total-without-vat">Celková cena (bes DPH): ${formatPrice(totalPriceWithoutVAT)}</p>
           <p class="total-with-vat">Celková cena (s DPH, 21 %): ${formatPrice(totalPriceWithVAT)}</p>
         </div>
         <div class="cart-totals-buttons">
@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const product = shopItemsData.find((x) => x.id === id);
       cartItem.querySelector(".counter").textContent = search.item; // Update the quantity
       cartItem.querySelector(".cart-item-units").textContent = `${product.amount * search.item} ${product.unit}`; // Update the total units
-      cartItem.querySelector(".cart-item-total").textContent = `${formatPrice(product.pricePerUnit * search.item)} (bez DPH)`; // Update the total price
+      cartItem.querySelector(".cart-item-total").textContent = `${formatPrice(product.pricePerUnit * search.item)} (bes DPH)`; // Update the total price
     }
   
     if (window.location.pathname.includes("cart.html")) {
@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const product = shopItemsData.find((x) => x.id === id);
         cartItem.querySelector(".counter").textContent = search.item;
         cartItem.querySelector(".cart-item-units").textContent = `${product.amount * search.item} ${product.unit}`;
-        cartItem.querySelector(".cart-item-total").textContent = `${formatPrice(product.pricePerUnit * search.item)} (bez DPH)`;
+        cartItem.querySelector(".cart-item-total").textContent = `${formatPrice(product.pricePerUnit * search.item)} (bes DPH)`;
       }
     }
   
@@ -262,7 +262,7 @@ let generateOrderDetails = (basketData) => {
     .join("\n");
 
   // Combine product lines with the totals
-  return `${productLines}\n\n----------------------------------\nCelková cena (bez DPH): ${formatPrice(
+  return `${productLines}\n\n----------------------------------\nCelková cena (bes DPH): ${formatPrice(
     totalPriceWithoutVAT
   )}\nCelková cena (s DPH, 21 %): ${formatPrice(totalPriceWithVAT)}`;
 };
@@ -315,7 +315,7 @@ let generateOrderDetails = (basketData) => {
     // Update total prices in the DOM
     const totalWithoutVATElement = document.querySelector(".total-without-vat");
     if (totalWithoutVATElement) {
-      totalWithoutVATElement.textContent = `Celková cena (bez DPH): ${formatPrice(totalPriceWithoutVAT)}`;
+      totalWithoutVATElement.textContent = `Celková cena (bes DPH): ${formatPrice(totalPriceWithoutVAT)}`;
     }
   
     const totalWithVATElement = document.querySelector(".total-with-vat");
