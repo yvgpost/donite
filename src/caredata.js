@@ -1,55 +1,35 @@
 let careData = [   
     {
-        id: 41,
+        id: 31,
         category: "Ošetřující prostředky",
         link: "store.html#caring",
         categoryColor: "#257a56",
-        productName: "WASHCLEAN 6 kg",
-        unit: "kg",
-        amount: 6,
-        shortDescription: "Silně alkalický, nepěnivý čistící a odmašťující přípravek",
-        img: "/img/canister.jpg",
-        longDescription: "Silně alkalický, nepěnivý čistící a odmašťující přípravek. Používá se na vodovzdorné povrchy, podlahy a technologická zařízení v potravinářství, stravovacích provozech, bazénech, kotelnách k vnitřnímu čištění potrubí a nádrží, apod.",
-        preicePerKg: "19900",
-        pricePerKgVat: "24070",
-        pricePerUnit: "119400",
-        pricePerUnitVat: "144474",
-        howToUse: "Generální úklid a odmaštění: smíchejte s vodou v poměru 1:1 – 1:20 (5 dl na 10 l vody). Běžný úklid: smíchejte s vodou v poměru 1:100 (1dl na 10 l vody).",
-        dataSheet: "src/washcleandata.pdf",
-        properties: "Světležlutá kapalina, pH 11,0-13,5 (3% roztok při 20 °C). Zápach: slabý, charakteristický.",
-        safetySheet: "src/washcleansafety.pdf"
+        productName: "DONILEX 5 l",
+        unit: "l",
+        amount: 5,
+        shortDescription: "Mycí a konzervační přípravek s protiskluzným voskem",
+        img: "/img/donilex 5.png",
+        longDescription: "Denní mycí a konzervační přípravek s protiskluzným voskem na všechny voděodolné povrchy: podlahová dlažba, parkety, plovoucí podlaha, linoleum, marmoleum, kámen apod. Zanechává na povrchu ochrannou vrstvu, která brání vzniku povrchových změn, zajišťuje čistý a lesklý vzhled a usnadňuje následné čištění.",
+        preicePerKg: "25700",
+        pricePerKgVat: "31097",
+        pricePerUnit: "128500",
+        pricePerUnitVat: "155485",
+        howToUse: "Ruční a strojové mytí: 1:100 (1dl na 10 l vody).",
+        dataSheet: "",
+        properties: "",
+        safetySheet: ""
     },
-    {
-        id: 42,
-        category: "Ošetřující prostředky",
-        categoryColor: "#257a56",
-        link: "store.html#caring",
-        productName: "WASHCLEAN 6 kg",
-        unit: "kg",
-        amount: 6,
-        shortDescription: "Silně alkalický, nepěnivý čistící a odmašťující přípravek",
-        img: "/img/canister.jpg",
-        longDescription: "Silně alkalický, nepěnivý čistící a odmašťující přípravek. Používá se na vodovzdorné povrchy, podlahy a technologická zařízení v potravinářství, stravovacích provozech, bazénech, kotelnách k vnitřnímu čištění potrubí a nádrží, apod.",
-        preicePerKg: "19900",
-        pricePerKgVat: "24070",
-        pricePerUnit: "119400",
-        pricePerUnitVat: "144474",
-        howToUse: "Generální úklid a odmaštění: smíchejte s vodou v poměru 1:1 – 1:20 (5 dl na 10 l vody). Běžný úklid: smíchejte s vodou v poměru 1:100 (1dl na 10 l vody).",
-        dataSheet: "src/washcleandata.pdf",
-        properties: "Světležlutá kapalina, pH 11,0-13,5 (3% roztok při 20 °C). Zápach: slabý, charakteristický.",
-        safetySheet: "src/washcleansafety.pdf"
-    }
 ];
 
 /* Template
     {
-        id: 1-1,
+        id: ,
         category: "Ošetřující prostředky",
         categoryColor: "#257a56",
         link: "store.html#caring",
         productName: "",
         unit: "",
-        amount: 1,
+        amount: ,
         shortDescription: "",
         img: "/img/canister.jpg",
         longDescription: "",
@@ -61,5 +41,5 @@ let careData = [
         dataSheet: "",
         properties: "",
         safetySheet: ""
-    }
+    },
 */
