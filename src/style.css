@@ -525,7 +525,7 @@ padding: 1rem 1rem 0rem 1rem;
   background-color: #899dc9;
 }
 #combinationDescription, #comb .product-cell-left {
-  background-color: #008fe1;
+  background-color: #4C934C;
 }
 #careDescription, #care .product-cell-left {
   background-color: #257a56;
@@ -780,26 +780,27 @@ padding: 1rem 1rem 2rem 1rem;
   flex-direction: column;
   height: auto;
   padding: 1rem;
-  justify-content: space-evenly;
+  justify-content: center;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
+  gap: 1.5rem;
 } 
 .product-name {
-  font-size: 1.3rem;
+  font-size: 2rem;
   font-weight: bold;
   margin: 0;
 }
 .product-description {
-  height: 12rem;
 }
 .product-description-title {
   margin: 0.5rem 0 0.5rem 0;
   font-weight: bold;
 }
 .product-description-text {
-  margin: 0.5rem 0 0.5rem 0;
+  margin: 0;
   max-height: 11rem;
   overflow: scroll;
+  font-size: 1.3rem;
 }
 .prices {
   display: flex;
@@ -852,14 +853,25 @@ padding: 1rem 1rem 2rem 1rem;
   height: auto;
   font-weight: 300;
   border-radius: 0.5rem;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 .usage-content {
   display: flex;
   flex-direction: row;
 }
+.documents-container {
+  display: flex;
+  flex-direction: row;
+}
+.usage-content-documents {
+  display: flex;
+  flex-direction: column;
+}
+.usage-content-documents p {
+  margin: 0.5rem 1rem 0.5rem 0.5rem;
+}
 .usage-content-text {
-  width: 50rem;
+  width: auto;
 }
 .usage-content p {
   margin: 0.5rem 1rem 0.5rem 0.5rem;
@@ -882,6 +894,9 @@ padding: 1rem 1rem 2rem 1rem;
   padding: 0.3rem;
   width: 11.5rem;
   height: 2.5rem;
+  margin-right: 1rem;
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 .pdf img {
   width: 2.5rem;
@@ -921,6 +936,11 @@ padding: 1rem 1rem 2rem 1rem;
   text-align: inherit;
   font: inherit;
   box-shadow: 2px 2px 5px 0 rgba(0,0,0,.3);
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(9.1px);
+  -webkit-backdrop-filter: blur(9.1px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-weight: 600;
 }
 .increment, .decrement, .counter {
   width: 3.5rem;
@@ -944,7 +964,7 @@ padding: 1rem 1rem 2rem 1rem;
   box-shadow: 2px 2px 5px 0 rgba(0,0,0,.3);
 }
 .increment {
-  background-color: rgb(71, 136, 71);
+  background-color: green;
 }
 .decrement {
   background-color: red;

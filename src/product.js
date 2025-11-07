@@ -35,8 +35,7 @@ let generateProduct = (id) => {
         <div class="product-container-content" style="background-color: ${item.categoryColor};">
             <p class="product-name">${item.productName}</p>
             <div class="product-description">
-              <p class="product-description-title">Popis výrobku</p>
-              <p class="product-description-text">${item.longDescription}</p>
+              <p class="product-description-text">${item.shortDescription}</p>
             </div>
               <div class="prices">
               <div class="price-per-unit">
@@ -73,14 +72,16 @@ let generateProduct = (id) => {
         <div class="usage-text">
           <div class="usage-content">
             <div class="usage-content-text">
-              <p class="usage-content-text-title">Návod k použití</p>
-              <p>${item.howToUse}</p>
+              <p class="usage-content-text-title">Popis produktu</p>
+              ${item.longDescription}
             </div>
-            <div class="documents" onclick="window.open('/${item.dataSheet}','_top' ); return false;">
-              <div class="pdf">
-                <img src="img/pdf.png">
-                <p>Technický list</p>
-              </div>
+          </div>
+        </div>
+        <div class="usage-text">
+          <div class="usage-content">
+            <div class="usage-content-text">
+              <p class="usage-content-text-title">Návod k použití</p>
+              ${item.howToUse}
             </div>
           </div>
         </div>
@@ -88,13 +89,27 @@ let generateProduct = (id) => {
           <div class="usage-content">
             <div class="usage-content-text">
               <p class="usage-content-text-title">Fyzikální a chemické vlastnosti</p>
-              <p>${item.properties}</p>
+              ${item.properties}
             </div>
-            <div class="documents" onclick="window.open('/${item.safetySheet}','_top' ); return false;">
-              <div class="pdf">
-                <img src="img/pdf.png">
-                <p>Bezpečnostní list</p>
-              </div> 
+         </div>
+         <div class="usage-text">
+          <div class="usage-content-documents">
+            <div class="usage-content-text">
+              <p class="usage-content-text-title">Dokumenty ke stažení</p>
+            </div>
+            <div class="documents-container">
+              <div class="documents" onclick="window.open('/${item.safetySheet}','_top' ); return false;">
+                <div class="pdf">
+                  <img src="img/pdf.png">
+                  <p>Bezpečnostní list</p>
+                </div> 
+              </div>
+              <div class="documents" onclick="window.open('/${item.dataSheet}','_top' ); return false;">
+                <div class="pdf">
+                  <img src="img/pdf.png">
+                  <p>Technický list</p>
+                </div>
+              </div>
             </div>
          </div>
     `;
