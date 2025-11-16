@@ -4,7 +4,7 @@ let combData = [
         category: "Ekologická neutralizace zápachu a odmašťování",
         categoryColor: "#4C934C",
         link: "store.html#odor",
-        productName: "Enviro-Chem Cx 20 l",
+        productName: "ENVIRO-CHEM Cx 20 l",
         unit: "l",
         amount: 20,
         shortDescription: "Přípravek proti zapachu z organických zdrojů",
@@ -19,6 +19,27 @@ let combData = [
         properties: "<p>Světlá zelená kapalina, pH (koncentrát) 2,2. Zápach mírný.</p>",
         safetySheet: ""
     },
+    {
+        id: 42,
+        category: "Ekologická neutralizace zápachu a odmašťování",
+        categoryColor: "#4C934C",
+        link: "store.html#odor",
+        productName: "OLOBIO 5 kg",
+        unit: "kg",
+        amount: 5,
+        shortDescription: "Tekutý neutralizátor zápachu",
+        img: "/img/olobio 5.png",
+        longDescription: "<p>Zabraňuje tvorbě zapáchajících složek způsobených biologickým rozkladem (např. zkažené jídlo, odpad, organická hmota).</p><p>Niči molekuly zápachu, místo aby je jen překrýval. Zanechává příjemnou vůni pro svěží prostředí.</p><p>Bezpečný pro každodenní použití v domácnostech i profesionálních prostředích. Na rozdíl od běžných osvěžovačů vzduchu, které zápach pouze maskují, Olobio jej neutralizuje na molekulární úrovni. Díky tomu je obzvlášť účinný na místech, kde se zápach neustále vrací, jako jsou odpadní prostory nebo koupelny.</p>",
+        preicePerKg: "59900",
+        pricePerKgVat: "72479",
+        pricePerUnit: "299500",
+        pricePerUnitVat: "362395",
+        howToUse: "<p>Domácí odpadkové koše a popelnice: nastříkejte nebo nalijte malé množství přímo do nádoby po vyprázdnění, při přetrvávajícím zápachu aplikujte denně nebo po každém čištění.</p><p>Místnosti pro odpadky / společné odpadní prostory: nastříkejte vydatně na podlahy, stěny a kontejnery, opakujte pravidelně, abyste zabránili hromadění zápachu.</p><p>Zvířecí moč (domácí mazlíčci, útulky, kočičí toalety): aplikujte přímo na postižené místo, nechte přirozeně vyschnout.</p><p>Zapáchající dřezy a sprchy: nalijte malé množství do odpadu, nechte působit několik minut a poté opláchněte vodou.</p><p>Pouliční zametače / komunální úklid: v případě potřeby zřeďte (podle vybavení), nastříkejte na povrchy, kde se vyskytují organické pachy.</p>",
+        dataSheet: "",
+        properties: "<p>Čirý, mírně zeleno‑namodralý roztok. Slabý zápach po medu/mandlích, pH: 3, hustota při 20 °C: 2,6–3,2.</p>",
+        safetySheet: ""
+    },
+
 ];
 
 /* Template

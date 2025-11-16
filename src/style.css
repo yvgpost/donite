@@ -522,13 +522,13 @@ padding: 1rem 1rem 0rem 1rem;
   height: 2rem;
 }
 #desinfectionDescription, #des .product-cell-left {
-  background-color: #899dc9;
+  background-color: #4474ac;
 }
 #combinationDescription, #comb .product-cell-left {
   background-color: #4C934C;
 }
 #careDescription, #care .product-cell-left {
-  background-color: #257a56;
+  background-color: #246A73;
 }
 #spacDescription, #spec .product-cell-left {
   background-color: #c13540;
@@ -801,6 +801,7 @@ padding: 1rem 1rem 2rem 1rem;
   max-height: 11rem;
   overflow: scroll;
   font-size: 1.3rem;
+  text-align: left;
 }
 .prices {
   display: flex;
@@ -1560,7 +1561,7 @@ padding: 1rem 1rem 2rem 1rem;
     background-color: #008fe1;
   }
   #careDescription, #care .product-cell-left {
-    background-color: #257a56;
+    background-color: rgb(101, 67, 33);
   }
   #spacDescription, #spec .product-cell-left {
     background-color: #c13540;
