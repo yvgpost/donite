@@ -69,10 +69,11 @@ document.addEventListener("DOMContentLoaded", () => {
   
     let totalPriceWithoutVAT = 0;
     let totalPriceWithVAT = 0;
+    let totalUnits = 0;
   
     basketData.forEach((product) => {
       let listItem = document.createElement("div");
-      listItem.id = `cart-item-${product.id}`; // Add a unique ID for each cart item
+      listItem.id = `cart-item-${product.id}`; 
       listItem.innerHTML = `
         <div class="cart-item">
           <div class="cart-item-details">
@@ -91,21 +92,37 @@ document.addEventListener("DOMContentLoaded", () => {
       list.appendChild(listItem);
   
       // Accumulate totals
-      totalPriceWithoutVAT += product.totalPrice; // Total price without VAT
-      totalPriceWithVAT += product.totalPrice * 1.21; // Assuming 21% VAT
+      totalUnits += (product.amount * product.quantity);
+      totalPriceWithoutVAT += product.totalPrice; 
+      totalPriceWithVAT += product.totalPrice * 1.21; 
     });
   
     cartContainer.appendChild(list);
   
     // Update totals only on cart.html
     if (window.location.pathname.includes("cart.html")) {
+      const deliveryCostCents = computeDeliveryCost(basketData);
+      const totalPriceWithVATRounded = Math.round(totalPriceWithVAT);
+      const totalToPayCents = totalPriceWithVATRounded + deliveryCostCents;
+      
+      const FREE_THRESHOLD_CENTS = 8000 * 100;
+      const remainingToFreeCents = Math.max(0, FREE_THRESHOLD_CENTS - totalPriceWithoutVAT);
+        const deliveryText = deliveryCostCents === 0
+          ? `Doprava: ${formatPrice(0)}`
+          : `Doprava: ${formatPrice(deliveryCostCents)} (<span class="delivery-remaining">${formatPrice(remainingToFreeCents)} navic pro dopravu zdarma</span>)`;
+      
       const totalsDiv = document.createElement("div");
       totalsDiv.className = "cart-totals";
       totalsDiv.innerHTML = `
+        <div class="products-title">
+          <p>Shrnutí objednávky</p>
+        </div>
         <div class="totals">
         <div class="sums">
           <p class="total-without-vat">Celková cena (bes DPH): ${formatPrice(totalPriceWithoutVAT)}</p>
           <p class="total-with-vat">Celková cena (s DPH, 21 %): ${formatPrice(totalPriceWithVAT)}</p>
+          <p class="delivery-cost">${deliveryText}</p>
+          <p class="total-to-pay">Celkem k úhradě: ${formatPrice(totalToPayCents)}</p>
         </div>
         <div class="cart-totals-buttons">
           <button class="clear-cart-button" onclick="clearCart()">Vyprázdnit košík</button>
@@ -205,7 +222,10 @@ let openOrderForm = () => {
   orderForm.id = "order-form";
   orderForm.className = "order-form";
   orderForm.innerHTML = `
-    <h3>Údaje zákazníka</h3>
+    
+      <div class="products-title">
+        <p>Údaje zákazníka</p>
+      </div>
       <div class="input-fields">
         <input type="text" name="name" placeholder="Jméno" required />
         <input type="text" name="surname" placeholder="Příjmení" required />
@@ -306,12 +326,26 @@ let generateOrderDetails = (basketData) => {
     }
   };
 
+  const computeDeliveryCost = (basketData) => {
+    const totalPriceWithoutVAT = basketData.reduce((sum, p) => sum + p.totalPrice, 0);
+    if (totalPriceWithoutVAT >= 8000 * 100) {
+      return 0;
+    }
+    // Otherwise delivery = 50 Kč per unit
+    const totalUnits = basketData.reduce((sum, p) => sum + (p.amount * p.quantity), 0);
+    return totalUnits * 50 * 100; // cents
+  };
+
   let updateTotals = () => {
     const basketData = fetchBasketData();
   
     const totalPriceWithoutVAT = basketData.reduce((sum, product) => sum + product.totalPrice, 0);
-    const totalPriceWithVAT = totalPriceWithoutVAT * 1.21; // Assuming 21% VAT
-  
+    const totalPriceWithVAT = totalPriceWithoutVAT * 1.21;
+
+    // compute delivery and total-to-pay (in cents)
+    const deliveryCostCents = computeDeliveryCost(basketData);
+    const totalToPayCents = Math.round(totalPriceWithVAT) + deliveryCostCents;
+
     // Update total prices in the DOM
     const totalWithoutVATElement = document.querySelector(".total-without-vat");
     if (totalWithoutVATElement) {
@@ -321,6 +355,25 @@ let generateOrderDetails = (basketData) => {
     const totalWithVATElement = document.querySelector(".total-with-vat");
     if (totalWithVATElement) {
       totalWithVATElement.textContent = `Celková cena (s DPH, 21 %): ${formatPrice(totalPriceWithVAT)}`;
+    }
+
+// delivery and final total
+    const deliveryElement = document.querySelector(".delivery-cost");
+    if (deliveryElement) {
+      const FREE_THRESHOLD_CENTS = 8000 * 100;
+      const remainingToFreeCents = Math.max(0, FREE_THRESHOLD_CENTS - totalPriceWithoutVAT);
+     
+if (deliveryCostCents === 0) {
+    deliveryElement.textContent = `Doprava: ${formatPrice(0)}`;
+  } else {
+    deliveryElement.innerHTML =
+      `Doprava: ${formatPrice(deliveryCostCents)} (<span class="delivery-remaining">${formatPrice(remainingToFreeCents)} navic pro dopravu zdarma</span>)`;
+  }
+
+    }
+    const totalToPayElement = document.querySelector(".total-to-pay");
+    if (totalToPayElement) {
+      totalToPayElement.textContent = `Celkem k úhradě: ${formatPrice(totalToPayCents)}`;
     }
   };
 

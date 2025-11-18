@@ -279,7 +279,6 @@ let cleanData = [
         properties: "<p>Bílá kapalina, zápach charakteristický, pH: 8,50.</p>",
         safetySheet: "/downloads/donilex safety.pdf"
     },
-
 ];
 
 /* Template

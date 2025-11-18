@@ -39,7 +39,6 @@ let specData = [
         properties: "<p>Modrá kapalina, pH 1,5-2,5 (3% roztok při 20 °C). Zápach: charakteristický.</p>",
         safetySheet: "/downloads/limescale strong safety.pdf"
     },
-
 ];
 
 /* Template
