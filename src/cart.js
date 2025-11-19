@@ -109,8 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const remainingToFreeCents = Math.max(0, FREE_THRESHOLD_CENTS - totalPriceWithoutVAT);
         const deliveryText = deliveryCostCents === 0
           ? `Doprava: ${formatPrice(0)}`
-          : `Doprava: ${formatPrice(deliveryCostCents)} (<span class="delivery-remaining">${formatPrice(remainingToFreeCents)} navic pro dopravu zdarma</span>)`;
-      
+          : `Doprava: ${formatPrice(deliveryCostCents)}`;
       const totalsDiv = document.createElement("div");
       totalsDiv.className = "cart-totals";
       totalsDiv.innerHTML = `
@@ -119,8 +118,15 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="totals">
         <div class="sums">
-          <p class="total-without-vat">Celková cena (bes DPH): ${formatPrice(totalPriceWithoutVAT)}</p>
-          <p class="total-with-vat">Celková cena (s DPH, 21 %): ${formatPrice(totalPriceWithVAT)}</p>
+      <p class="total-without-vat">
+        Celková cena (bes DPH): ${formatPrice(totalPriceWithoutVAT)}
+        ${
+          remainingToFreeCents > 0
+            ? `<span class="delivery-inline">Pro dopravu zdarma nakupte ještě za <span class="delivery-inline-amount">${formatPrice(remainingToFreeCents)}</span></span>`
+            : "" // No need for extra span if delivery is free
+        }
+      </p>          
+<p class="total-with-vat">Celková cena (s DPH, 21 %): ${formatPrice(totalPriceWithVAT)}</p>
           <p class="delivery-cost">${deliveryText}</p>
           <p class="total-to-pay">Celkem k úhradě: ${formatPrice(totalToPayCents)}</p>
         </div>
@@ -347,11 +353,18 @@ let generateOrderDetails = (basketData) => {
     const totalToPayCents = Math.round(totalPriceWithVAT) + deliveryCostCents;
 
     // Update total prices in the DOM
+    const FREE_THRESHOLD_CENTS = 8000 * 100;
+    const remainingToFreeCents = Math.max(0, FREE_THRESHOLD_CENTS - totalPriceWithoutVAT);
+
     const totalWithoutVATElement = document.querySelector(".total-without-vat");
     if (totalWithoutVATElement) {
-      totalWithoutVATElement.textContent = `Celková cena (bes DPH): ${formatPrice(totalPriceWithoutVAT)}`;
-    }
-  
+      totalWithoutVATElement.innerHTML =
+        `Celková cena (bes DPH): ${formatPrice(totalPriceWithoutVAT)}${
+          remainingToFreeCents > 0
+            ? `<span class="delivery-inline">Pro dopravu zdarma nakupte ještě za <span class="delivery-inline-amount">${formatPrice(remainingToFreeCents)}</span></span>`
+            : "" // No extra span if delivery is free
+        }`;
+    }    
     const totalWithVATElement = document.querySelector(".total-with-vat");
     if (totalWithVATElement) {
       totalWithVATElement.textContent = `Celková cena (s DPH, 21 %): ${formatPrice(totalPriceWithVAT)}`;
@@ -363,14 +376,12 @@ let generateOrderDetails = (basketData) => {
       const FREE_THRESHOLD_CENTS = 8000 * 100;
       const remainingToFreeCents = Math.max(0, FREE_THRESHOLD_CENTS - totalPriceWithoutVAT);
      
-if (deliveryCostCents === 0) {
-    deliveryElement.textContent = `Doprava: ${formatPrice(0)}`;
-  } else {
-    deliveryElement.innerHTML =
-      `Doprava: ${formatPrice(deliveryCostCents)} (<span class="delivery-remaining">${formatPrice(remainingToFreeCents)} navic pro dopravu zdarma</span>)`;
-  }
-
+    if (deliveryCostCents === 0) {
+      deliveryElement.textContent = `Doprava: ${formatPrice(0)}`;
+    } else {
+      deliveryElement.textContent = `Doprava: ${formatPrice(deliveryCostCents)}`;
     }
+      }
     const totalToPayElement = document.querySelector(".total-to-pay");
     if (totalToPayElement) {
       totalToPayElement.textContent = `Celkem k úhradě: ${formatPrice(totalToPayCents)}`;
