@@ -129,6 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <p class="total-with-vat">Celková cena (s DPH, 21 %): ${formatPrice(totalPriceWithVAT)}</p>
           <p class="delivery-cost">${deliveryText}</p>
           <p class="total-to-pay">Celkem k úhradě: ${formatPrice(totalToPayCents)}</p>
+          <p class="delivery-terms">Obvykle odesíláme  objednávky zákazníkům do 7 dnů.<br>Informujeme vás, pokud výroba objednávky potrvá déle.<br> Přesné dodací lhůty budou uvedeny na faktuře.</p>
         </div>
         <div class="cart-totals-buttons">
           <button class="clear-cart-button" onclick="clearCart()">Vyprázdnit košík</button>
@@ -224,27 +225,62 @@ let openOrderForm = () => {
     return;
   }
 
-  const orderForm = document.createElement("form");
-  orderForm.id = "order-form";
-  orderForm.className = "order-form";
-  orderForm.innerHTML = `
-    
-      <div class="products-title">
-        <p>Údaje zákazníka</p>
-      </div>
-      <div class="input-fields">
-        <input type="text" name="name" placeholder="Jméno" required />
-        <input type="text" name="surname" placeholder="Příjmení" required />
-        <input type="text" name="companyName" placeholder="Název společnosti" />
-        <input type="text" name="icNumber" placeholder="IČ" />
-        <input type="text" name="dicNumber" placeholder="DIČ" />
-        <input type="email" name="email" placeholder="Email" required />
-        <input type="text" name="phone" placeholder="Telefon" required />
-        <input type="adress" name="deliveryAddress" placeholder="Dodací adresa" required></textarea>
-        <textarea class="order-text-area-details" name="orderDetails" readonly>${generateOrderDetails(fetchBasketData())}</textarea>
-      </div>
-    <button class="send-order-button" type="button" onclick="submitOrder()">Odeslat objednávku</button>
-  `;
+
+const orderForm = document.createElement("form");
+orderForm.id = "order-form";
+orderForm.className = "order-form";
+orderForm.innerHTML = `
+  <div class="products-title">
+    <p>Údaje zákazníka</p>
+  </div>
+  <div class="input-fields">
+    <div>
+      <label for="name">Jméno<span style="color:#c13540">*</span></label>
+      <input type="text" id="name" name="name" required />       
+    </div>
+    <div>
+      <label for="surname">Příjmení<span style="color:#c13540">*</span></label>
+      <input type="text" name="surname" required />
+    </div>
+    <div>
+      <label for="phone">Telefon<span style="color:#c13540">*</span></label>   
+      <input type="text" name="phone" placeholder="např. 111 222 333" maxlength="16" minlength="9" pattern="[0-9\\-\\+\\(\\)\\s]+" required />
+    </div>
+    <div>
+      <label for="email">Email<span style="color:#c13540">*</span></label>   
+      <input type="email" name="email" placeholder="např. mail@adress.com" required />
+    </div>
+    <div>
+      <label for="deliveryAddress">Dodací adresa<span style="color:#c13540">*</span></label>   
+      <input type="text" name="deliveryAddress" placeholder="Zadejte polohu" required />
+    </div>
+    <div>
+      <label for="companyName">Název společnosti</label>
+      <input type="text" name="companyName" />
+    </div>
+    <div>
+      <label for="icNumber">IČO</label>   
+      <input type="text" name="icNumber" />
+    </div>
+    <div>
+      <label for="dicNumber">DIČ</label>   
+      <input type="text" name="dicNumber" />
+    </div>
+    <div id="ordernotes">
+      <label for="notes">Poznámky k objednávce</label>   
+      <textarea id="ordernotesText" name="notes"></textarea>
+    </div>
+    <div class="souhlas-container">
+      <input type="checkbox" name="checkbox" id="checkbox" required="">
+      <label for="checkbox">
+        <span id="souhlas">Souhlas se zpracováním <a href="gdpr.html" target="_blank" rel="noopener">osobních&nbsp;údajů</a> a <a href="terms.html" target="_blank" rel="noopener">obchodními&nbsp;podmínkami</a></span>
+      </label>
+    </div>
+  </div> 
+  <textarea class="order-text-area-details" name="orderDetails" readonly>${generateOrderDetails(fetchBasketData())}</textarea>
+  <button class="send-order-button" type="button" onclick="submitOrder()">Odeslat objednávku</button>
+`;
+
   cartContainer.appendChild(orderForm);
 
   // Restore saved form data from localStorage
@@ -293,44 +329,37 @@ let generateOrderDetails = (basketData) => {
   )}\nCelková cena (s DPH, 21 %): ${formatPrice(totalPriceWithVAT)}`;
 };
 
-  let submitOrder = async () => {
-    const form = document.getElementById("order-form");
-    const formData = new FormData(form);
-  
-    try {
-      const response = await fetch("src/send_order.php", {
-        method: "POST",
-        body: formData,
-      });
-  
-      if (response.ok) {
-        closeOrderForm(); // Close the form and clear its state
-        alert("Děkujeme za vaši objednávku!"); // "Thank you for your order!"
-        // Show a thank-you message
-        const thankYouMessage = document.createElement("div");
-        thankYouMessage.className = "thank-you-message";
-        thankYouMessage.innerHTML = `
-          <h2>Děkujeme za vaši objednávku!</h2>
-          <p>Budete přesměrováni na hlavní stránku</p>
-        `;
-        document.body.appendChild(thankYouMessage);
-  
-        // Clear the basket and local storage
-        basket = [];
-        localStorage.setItem("basket", JSON.stringify(basket));
-  
-        // Redirect to the main page after 5 seconds
-        setTimeout(() => {
-          window.location.href = "index.html"; // Replace with your main page URL
-        }, 5000);
-      } else {
-        alert("Došlo k chybě při odesílání objednávky."); // "An error occurred while sending the order."
-      }
-    } catch (error) {
-      console.error("Error submitting order:", error);
-      alert("Došlo k chybě při odesílání objednávky."); // "An error occurred while sending the order."
+let submitOrder = async () => {
+  const form = document.getElementById("order-form");
+  if (!form) return;
+
+  // Check required fields before submitting
+  if (!form.checkValidity()) {
+    alert("Vyplňte prosím všechna povinná pole."); // "Please fill in all required fields."
+    form.reportValidity(); // Show browser validation messages
+    return;
+  }
+
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch("src/send_order.php", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (response.ok) {
+      closeOrderForm();
+      alert("Děkujeme za vaši objednávku!");
+      // ...existing code...
+    } else {
+      alert("Došlo k chybě při odesílání objednávky.");
     }
-  };
+  } catch (error) {
+    console.error("Error submitting order:", error);
+    alert("Došlo k chybě při odesílání objednávky.");
+  }
+};
 
   const computeDeliveryCost = (basketData) => {
     const totalPriceWithoutVAT = basketData.reduce((sum, p) => sum + p.totalPrice, 0);
