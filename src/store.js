@@ -29,7 +29,7 @@ let generateProducts = (data, containerId) => {
                         <div class="product-cell-left">
                             <h2>${item.productName}</h2>
                             <p>${item.shortDescription}</p>
-                              <div style="align-self: center; margin-top: auto; align-items: center;" class="price-per-unit-numbers">
+                              <div class="price-per-unit-numbers">
                                 <p class="vat" style="font-weight: 600">${formatPrice(item.pricePerUnit)}</p>
                                 <p class="no-vat">${formatPrice(item.pricePerUnitVat)} s DPH</p>
                               </div>

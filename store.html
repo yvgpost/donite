@@ -22,12 +22,12 @@
           <div class="menu-section">
             <a onclick="window.open('index.html','_top' ); return false;" id="myBtnUp">Domů</a>
             <div class="store-button">
-              <a onclick="window.open('store.html','_top' ); return false;">Prodej výrobků&searr;</a>
+              <a onclick="topFunction()">Prodej výrobků&searr;</a>
               <div class="menu-section-dropdown">
                   <a class="subcategory" onclick="window.open('store.html#cleaning','_top' ); return false;">Čisticí prostředky</a>
                   <a class="subcategory" onclick="window.open('store.html#desinfection','_top' ); return false;">Dezinfekční prostředky</a>
                   <a class="subcategory" onclick="window.open('store.html#caring','_top' ); return false;">Ošetřující prostředky</a>
-                  <a class="subcategory" onclick="window.open('store.html#odor','_top' ); return false;">Ekologická neutralizace zápachu a odmašťování</a>
+                  <a class="subcategory" onclick="window.open('store.html#odor','_top' ); return false;">Ekologická neutralizace zápachu</a>
                   <a class="subcategory" onclick="window.open('store.html#special','_top' ); return false;">Speciální prostředky</a>
               </div>
             </div>
@@ -43,12 +43,12 @@
         <div class="menu-lang-mobile" id="menuLang">
           <div class="menu-section-mobile">
             <a onclick="window.open('index.html','_top' ); return false;">Domů</a>
-            <a onclick="window.open('store.html','_top' ); return false;">Prodej výrobků</a>
-              <a class="subcategory" onclick="window.open('store.html#cleaning','_top' ); return false;">Čisticí prostředky</a>
-              <a class="subcategory" onclick="window.open('store.html#desinfection','_top' ); return false;">Dezinfekční prostředky</a>
-              <a class="subcategory" onclick="window.open('store.html#caring','_top' ); return false;">Ošetřující prostředky</a>
-              <a class="subcategory" onclick="window.open('store.html#odor','_top' ); return false;">Ekologická neutralizace<br> zápachu a odmašťování</a>
-              <a class="subcategory" onclick="window.open('store.html#special','_top' ); return false;">Speciální prostředky</a>
+            <a onclick="topFunction(); myFunction(); toggleHamburger();">Prodej výrobků</a>
+              <a class="subcategory" onclick="myFunction(); toggleHamburger(); window.open('store.html#cleaning','_top' ); return false;">Čisticí prostředky</a>
+              <a class="subcategory" onclick="myFunction(); toggleHamburger(); window.open('store.html#desinfection','_top' ); return false;">Dezinfekční prostředky</a>
+              <a class="subcategory" onclick="myFunction(); toggleHamburger(); window.open('store.html#caring','_top' ); return false;">Ošetřující prostředky</a>
+              <a class="subcategory" onclick="myFunction(); toggleHamburger(); window.open('store.html#odor','_top' ); return false;">Ekologická neutralizace<br> zápachu</a>
+              <a class="subcategory" onclick="myFunction(); toggleHamburger(); window.open('store.html#special','_top' ); return false;">Speciální prostředky</a>
             <a onclick="downFunction(); myFunction(); toggleHamburger();" id="myBtnDowm">Kontakty</a>
           </div>
         </div>
@@ -90,7 +90,7 @@
     </div>
     <div class="products-section" id="comb">
       <div class="products-title">
-        <p>Ekologická neutralizace zápachu a odmašťování</p>
+        <p>Ekologická neutralizace zápachu</p>
         <a class="anchor" id="odor">Combination</a>
       </div>
       <div class="products-grid" id="products-grid-comb">

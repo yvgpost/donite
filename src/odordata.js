@@ -1,7 +1,7 @@
 let combData = [   
     {
         id: 41,
-        category: "Ekologická neutralizace zápachu a odmašťování",
+        category: "Ekologická neutralizace zápachu",
         categoryColor: "#4C934C",
         link: "store.html#odor",
         productName: "ENVIRO-CHEM Cx 20 l",
@@ -21,7 +21,7 @@ let combData = [
     },
     {
         id: 42,
-        category: "Ekologická neutralizace zápachu a odmašťování",
+        category: "Ekologická neutralizace zápachu",
         categoryColor: "#4C934C",
         link: "store.html#odor",
         productName: "OLOBIO 5 kg",
@@ -45,7 +45,7 @@ let combData = [
 /* Template
     {
         id: ,
-        category: "Ekologická neutralizace zápachu a odmašťování",
+        category: "Ekologická neutralizace zápachu",
         categoryColor: "#4C934C",
         link: "store.html#odor",
         productName: "",

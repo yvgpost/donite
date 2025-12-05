@@ -272,7 +272,7 @@ orderForm.innerHTML = `
     </div>
     <div class="souhlas-container">
       <input type="checkbox" name="checkbox" id="checkbox" required="">
-      <label for="checkbox">
+      <label id="checkboxLabel" for="checkbox">
         <span id="souhlas">Souhlas se zpracováním <a href="gdpr.html" target="_blank" rel="noopener">osobních&nbsp;údajů</a> a <a href="terms.html" target="_blank" rel="noopener">obchodními&nbsp;podmínkami</a></span>
       </label>
     </div>

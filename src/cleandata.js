@@ -279,6 +279,27 @@ let cleanData = [
         properties: "<p>Bílá kapalina, zápach charakteristický, pH: 8,50.</p>",
         safetySheet: "/downloads/donilex safety.pdf"
     },
+    {
+        id: 115,
+        category: "Čisticí prostředky",
+        categoryColor: "rgb(51, 70, 116)",
+        link: "store.html#cleaning",
+        productName: "WASH RINSE 5 kg",
+        unit: "kg",
+        amount: 5,
+        shortDescription: "Oplachový prostředek pro profesionální myčky nádobí",
+        img: "/img/wash rinse 5.png",
+        longDescription: "<p>Oplachový prostředek pro profesionální myčky nádobí, které mají automatický dávkovací systém zabudovaný v myčce nebo dávkování přes dávkovací čerpadlo.</p><p>Zaručuje vysoký lesk, rychlé schnutí bez tvorby kapek na nádobí, sklenicích, příborech apod.</p>",
+        preicePerKg: "20500",
+        pricePerKgVat: "24805",
+        pricePerUnit: "102500",
+        pricePerUnitVat: "124025",
+        howToUse: "<p>Dávkujte 2 – 10 ml na 10 l vody.</p>",
+        dataSheet: "/downloads/wash rinse data.pdf",
+        properties: "<p>Čirá světlemodrá kapalina, pH 2,1 - 4,0 (3% roztok při 20 °C). Zápach: slabý, charakteristický.</p>",
+        safetySheet: "/downloads/wash rinse safety.pdf"
+    },
+
 ];
 
 /* Template
