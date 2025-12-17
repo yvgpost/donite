@@ -39,6 +39,46 @@ let specData = [
         properties: "<p>Modrá kapalina, pH 1,5-2,5 (3% roztok při 20 °C). Zápach: charakteristický.</p>",
         safetySheet: "/downloads/limescale strong safety.pdf"
     },
+    {
+        id: 53,
+        category: "Speciální prostředky",
+        categoryColor: "#c13540",
+        link: "store.html#special",
+        productName: "Red Strong 5 kg",
+        unit: "kg",
+        amount: 5,
+        shortDescription: "Silně kyselý čistící přípravek na rez a vodní kámen",
+        img: "/img/red strong 5.png",
+        longDescription: "<p>Silně kyselý, čistící přípravek na rez a vodní kámen. Je určen pro mytí železa, plastů, kamene, cihel, zámkové dlažby, porcelánu a jako kyselé mytí betonových podlah před nanesením epoxy vrstvy nebo podlahového nátěru.</p><p>Ideální k odstranění nečistot z betonovývh podlah s natřeným povrchem, strojů a zařízení. Je velmi účinný pro čištění kamenných dlaždic, zámkové dlažby, odstraňuje vodní kámen, zbytky betonových nánosů a rez.</p>",
+        preicePerKg: "20900",
+        pricePerKgVat: "25289",
+        pricePerUnit: "104500",
+        pricePerUnitVat: "126445",
+        howToUse: "<p>Používá se neředěný nebo v poměru 1:1 – 1:5 do vody. Po aplikaci opláchněte vodou ( i teplou), aby se povrch zneutralizoval.</p><p>Red Strong může odbarvit hliník, mosaz, měď a zinek.</p>",
+        dataSheet: "/downloads/red strong data.pdf",
+        properties: "<p>Červená kapalina, pH 1,5-2,5 (3% roztok při 20 °C). Zápach: charakteristický.</p>",
+        safetySheet: "/downloads/red strong safety.pdf"
+    },
+    {
+        id: 54,
+        category: "Speciální prostředky",
+        categoryColor: "#c13540",
+        link: "store.html#special",
+        productName: "Red Strong 20 kg",
+        unit: "kg",
+        amount: 20,
+        shortDescription: "Silně kyselý čistící přípravek na rez a vodní kámen",
+        img: "/img/red strong 20.png",
+        longDescription: "<p>Silně kyselý, čistící přípravek na rez a vodní kámen. Je určen pro mytí železa, plastů, kamene, cihel, zámkové dlažby, porcelánu a jako kyselé mytí betonových podlah před nanesením epoxy vrstvy nebo podlahového nátěru.</p><p>Ideální k odstranění nečistot z betonovývh podlah s natřeným povrchem, strojů a zařízení. Je velmi účinný pro čištění kamenných dlaždic, zámkové dlažby, odstraňuje vodní kámen, zbytky betonových nánosů a rez.</p>",
+        preicePerKg: "18400",
+        pricePerKgVat: "22264",
+        pricePerUnit: "368000",
+        pricePerUnitVat: "445280",
+        howToUse: "<p>Používá se neředěný nebo v poměru 1:1 – 1:5 do vody. Po aplikaci opláchněte vodou ( i teplou), aby se povrch zneutralizoval.</p><p>Red Strong může odbarvit hliník, mosaz, měď a zinek.</p>",
+        dataSheet: "/downloads/red strong data.pdf",
+        properties: "<p>Červená kapalina, pH 1,5-2,5 (3% roztok při 20 °C). Zápach: charakteristický.</p>",
+        safetySheet: "/downloads/red strong safety.pdf"
+    },
 ];
 
 /* Template

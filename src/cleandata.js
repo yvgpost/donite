@@ -299,7 +299,26 @@ let cleanData = [
         properties: "<p>Čirá světlemodrá kapalina, pH 2,1 - 4,0 (3% roztok při 20 °C). Zápach: slabý, charakteristický.</p>",
         safetySheet: "/downloads/wash rinse safety.pdf"
     },
-
+    {
+        id: 115,
+        category: "Čisticí prostředky",
+        categoryColor: "rgb(51, 70, 116)",
+        link: "store.html#cleaning",
+        productName: "WASH RINSE 20 kg",
+        unit: "kg",
+        amount: 20,
+        shortDescription: "Oplachový prostředek pro profesionální myčky nádobí",
+        img: "/img/wash rinse 20.png",
+        longDescription: "<p>Oplachový prostředek pro profesionální myčky nádobí, které mají automatický dávkovací systém zabudovaný v myčce nebo dávkování přes dávkovací čerpadlo.</p><p>Zaručuje vysoký lesk, rychlé schnutí bez tvorby kapek na nádobí, sklenicích, příborech apod.</p>",
+        preicePerKg: "18900",
+        pricePerKgVat: "22869",
+        pricePerUnit: "378000",
+        pricePerUnitVat: "457380",
+        howToUse: "<p>Dávkujte 2 – 10 ml na 10 l vody.</p>",
+        dataSheet: "/downloads/wash rinse data.pdf",
+        properties: "<p>Čirá světlemodrá kapalina, pH 2,1 - 4,0 (3% roztok při 20 °C). Zápach: slabý, charakteristický.</p>",
+        safetySheet: "/downloads/wash rinse safety.pdf"
+    },
 ];
 
 /* Template
